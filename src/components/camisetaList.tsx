@@ -23,7 +23,9 @@ const CamisetaList: React.FC = () => {
         // Vamos a consultar la BBDD
         async function fecthCamisetas() {
             try {
-                const { data, error } = await supabase.from('Camisetas').select('*');
+                const { data, error } = await supabase.from('Camisetas')
+                  .select('*').eq('temporada', '23/24')
+                  .order('created_at', { ascending: false });
 
                 if (error) throw error;
 
