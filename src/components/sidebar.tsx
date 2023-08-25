@@ -9,7 +9,7 @@ const Sidebar: React.FC = () => {
     async function fetchCategorias() {
       try {
         const { data: ligasData, error: ligasError } = await supabase.from('Camisetas').select('liga');
-        const { data: equiposData, error: equiposError } = await supabase.from('Camisetas').select('equipo');
+        const { data: equiposData, error: equiposError } = await supabase.from('Camisetas').select('equipo').order('equipo', { ascending: true });
 
         if (ligasError || equiposError) throw ligasError || equiposError;
 
