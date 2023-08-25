@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import supabase, { auth } from '../supabase.ts';
 
 const RegisterForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,6 +26,7 @@ const RegisterForm: React.FC = () => {
         
         console.log('User registered successfully:', data.user);
         // Redirigir al Home
+        navigate('/');
       }
     } catch (error) {
       console.error('Error registering user:', error);
