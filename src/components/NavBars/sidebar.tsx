@@ -15,13 +15,11 @@ const Sidebar: React.FC = () => {
 
         if (ligasData) {
           const uniqueLigas = [...new Set(ligasData.map((item) => item.liga))];
-          console.log(uniqueLigas);
           setLigas(uniqueLigas);
         }
 
         if (equiposData) {
           const uniqueEquipos = [...new Set(equiposData.map((item) => item.equipo))];
-          console.log(uniqueEquipos);
           setEquipos(uniqueEquipos);
         }
       } catch (error) {
@@ -33,7 +31,6 @@ const Sidebar: React.FC = () => {
   }, []);
 
   const categorias = [...ligas, ...equipos]; // Combinar ligas y equipos
-  console.log(categorias);
 
   return (
     <div className="bg-light" style={{ width: '20%', minHeight: '100vh' }}>

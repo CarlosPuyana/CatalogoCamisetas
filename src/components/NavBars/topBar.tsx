@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Importa useHistory
 
 interface TopBarProps {
-  onSearch: (searchText: string) => void;
+  // Define props
 }
 
-const TopBar: React.FC<TopBarProps> = ({ onSearch }) => {
+const TopBar: React.FC<TopBarProps> = () => {
   const [searchText, setSearchText] = useState('');
+  const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearch(searchText);
+    if (searchText === '') navigate('/')
+    else navigate(`/busqueda/${searchText}`);
   };
 
   return (
@@ -18,7 +21,7 @@ const TopBar: React.FC<TopBarProps> = ({ onSearch }) => {
       <Navbar bg="light" expand="lg" className='d-flex flex-column align-items-end'>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Form className='d-flex align-items-center'>
+          <Form className='d-flex align-items-center' onSubmit={handleSearch}>
             <FormControl
               type="text"
               placeholder="Buscar"

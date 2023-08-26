@@ -2,23 +2,9 @@ import React, { useEffect } from 'react';
 import Sidebar from '../components/NavBars/sidebar.tsx';
 import { Container } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
+import { ICamisetaDetalleProps } from '../Interfaces/camisetas.ts';
 
-interface Camiseta {
-    id: number;
-    create_at: number;
-    equipo: string;
-    liga: string;
-    temporada: string;
-    imagen: string;
-    nombre: string;
-    descripcion: string;
-}
-
-interface CamisetaDetalleProps {
-    camisetas: Camiseta[];
-}
-
-const CamisetaDetalle: React.FC<CamisetaDetalleProps> = ({ camisetas }) => {
+const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
     const { id } = useParams();
     const camiseta = camisetas.find((c) => c.id === Number(id));
 
