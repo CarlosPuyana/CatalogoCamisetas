@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Pagination } from 'react-bootstrap';
 import Sidebar from './NavBars/sidebar.tsx';
 import { Link, useParams } from 'react-router-dom';
 import TopBar from './NavBars/topBar.tsx';
@@ -10,6 +10,9 @@ const CamisetaList: React.FC<ICamisetaListProps> = ({ camisetas }) => {
 
   const { busqueda } = useParams();
   const [nuevasCamisetas, setNuevasCamisetas] = useState<ICamiseta[]>([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const camisetasPerPage = 30; // Número de camisetas por página
 
   console.log(busqueda)
 
@@ -24,8 +27,20 @@ const CamisetaList: React.FC<ICamisetaListProps> = ({ camisetas }) => {
     }
     fetchData();
   }, [busqueda, camisetas]);
-
+  
   const camisetasToDisplay = busqueda ? nuevasCamisetas : camisetas;
+  const indexOfLastCamiseta = currentPage * camisetasPerPage;
+  const indexOfFirstCamiseta = indexOfLastCamiseta - camisetasPerPage;
+  const currentCamisetas = camisetasToDisplay.slice(indexOfFirstCamiseta, indexOfLastCamiseta);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(camisetasToDisplay.length / camisetasPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="d-flex">
@@ -35,7 +50,7 @@ const CamisetaList: React.FC<ICamisetaListProps> = ({ camisetas }) => {
         <Container className="mt-5" style={{ width: '100%' }}>
           <h2 className="text-center mb-4">Lista de Camisetas</h2>
           <div className="d-flex flex-wrap align-items-stretch">
-            { camisetasToDisplay.map((camiseta) => (
+            { currentCamisetas.map((camiseta) => (
               <div key={camiseta.id} className="mb-4" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
                 <Link to={`/camiseta/${camiseta.id}`}>
                   <div className="card p-2 d-flex flex-column h-100">
@@ -49,6 +64,13 @@ const CamisetaList: React.FC<ICamisetaListProps> = ({ camisetas }) => {
               </div>
             ))}
           </div>
+          <Pagination>
+          {pageNumbers.map((number) => (
+              <Pagination.Item key={number} active={number === currentPage} onClick={() => paginate(number)}>
+                {number}
+              </Pagination.Item>
+            ))}
+          </Pagination>
         </Container>
       </div>
     </div>
