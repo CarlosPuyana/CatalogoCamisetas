@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import supabase from '../supabase.ts';
+import supabase from '../../supabase.ts';
 
 const Sidebar: React.FC = () => {
   const [ligas, setLigas] = useState<string[]>([]);

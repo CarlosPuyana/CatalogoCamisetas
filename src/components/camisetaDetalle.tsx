@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Sidebar from './sidebar.tsx';
+import Sidebar from '../components/NavBars/sidebar.tsx';
 import { Container } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
 
