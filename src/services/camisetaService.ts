@@ -3,7 +3,7 @@ import supabase from '../supabase.ts';
 
 class CamisetaService {
   async getAllCamisetas(): Promise<ICamiseta[]> {
-    const { data, error } = await supabase.from('Camisetas').select('*');
+    const { data, error } = await supabase.from('Camisetas').select('*').order('temporada', { ascending: true });
     if (error) {
       throw error;
     }
@@ -11,7 +11,7 @@ class CamisetaService {
   }
 
   async getCamisetasByTemporada(temporada: string): Promise<ICamiseta[]> {
-    const { data, error } = await supabase.from('Camisetas').select('*').eq('temporada', temporada);
+    const { data, error } = await supabase.from('Camisetas').select('*').eq('temporada', temporada).order('temporada', { ascending: true });
     if (error) {
       throw error;
     }
@@ -19,7 +19,7 @@ class CamisetaService {
   }
 
   async searchCamisetasByNombre(busqueda: string | undefined): Promise<ICamiseta[]> {
-    const { data, error } = await supabase.from('Camisetas').select('*').ilike('nombre', `%${busqueda}%`);
+    const { data, error } = await supabase.from('Camisetas').select('*').ilike('nombre', `%${busqueda}%`).order('temporada', { ascending: true });
     if (error) {
       throw error;
     }
