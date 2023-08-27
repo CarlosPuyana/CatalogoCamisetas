@@ -15,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ camisetas, onEquipoSelected }) => {
     "Premier League",
     "Serie A",
     "Ligue 1",
-    "BundesLiga",
+    "Bundesliga",
     "MLS",
     "Kings League",
     "Other Leagues"
