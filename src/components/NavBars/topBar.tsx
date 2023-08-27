@@ -18,7 +18,7 @@ const TopBar: React.FC<TopBarProps> = () => {
 
   return (
     <div style={{ width: '100%' }}>
-      <Navbar bg="light" expand="lg" className='d-flex flex-column align-items-end'>
+      <Navbar expand="lg" className='d-flex flex-column align-items-end'>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Form className='d-flex align-items-center' onSubmit={handleSearch}>

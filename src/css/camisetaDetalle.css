@@ -1,0 +1,55 @@
+  
+  /* Estilo para el nombre de la camiseta */
+  .camiseta-title {
+    width: max-content;
+    font-size: 1.5rem; /* Tamaño de fuente del nombre */
+    margin-top: 10px; /* Espacio entre la imagen y el nombre */
+    margin-left: 0;
+  }
+  
+  /* Estilo para la tarjeta principal */
+  .card {
+    width: 100%;
+    border: none; /* Elimina el borde de la tarjeta */
+    margin-bottom: 20px; /* Espacio entre las tarjetas */
+  }
+  
+  /* Estilo para las fotos adicionales */
+  .additional-photos {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    gap: 10px; /* Espacio entre las fotos */
+    margin-top: 20px; /* Espacio entre la tarjeta principal y las fotos */
+    width: 20px;
+    height: 300px;
+  }
+  
+  /* Estilo para la imagen principal */
+.camiseta-image {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* La altura se ajustará automáticamente */
+  }
+  
+  .additional-photos img {
+    max-width: 250px; /* Ajusta el ancho máximo de las imágenes */
+    height: auto; /* La altura se ajustará automáticamente */
+    margin: 5px; /* Agrega un margen entre las imágenes */
+  }
+
+  /* Estilo para el enlace de "Volver" */
+.back-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición de color de fondo al pasar el ratón */
+  }
+  
+  .back-link:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+  }
+  
+  
