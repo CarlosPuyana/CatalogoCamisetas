@@ -55,7 +55,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className='additional-photos'>
                         {imagenesSeparadas.map((imagen, index) => (
                             <img key={index} src={imagen} alt={`Imagen ${index + 2}`} onClick={abrirModal} />
                         ))}
