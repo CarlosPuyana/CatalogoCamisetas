@@ -10,12 +10,15 @@ import camisetaService from './services/camisetaService.ts';
 
 function App() {
   // Para esto debería hacerse un servicio propio de momento lo pongo aqui
-  const [camisetas, setCamisetas] = useState([]);
+  const [allCamisetas, setAllCamisetas] = useState([]);
+  const [newCamisetas, setNewCamisetas] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const fetchedCamisetas = await camisetaService.getCamisetasByTemporada('23/24');
-      setCamisetas(fetchedCamisetas);
+      const fetchedCamisetas = await camisetaService.getAllCamisetas();
+      setAllCamisetas(fetchedCamisetas);
+      const fetchedNewCamis = await camisetaService.getCamisetasByTemporada('23/24');
+      setNewCamisetas(fetchedNewCamis);
     }
     fetchData();
   }, []);
@@ -23,12 +26,12 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<CamisetaList camisetas={camisetas} />} />
+        <Route path="/" element={<CamisetaList camisetas={newCamisetas} />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/add" element={<CamisetaForm />} />
-        <Route path="/camiseta/:id" element={<CamisetaDetalle camisetas={camisetas} />} />
-        <Route path="/busqueda/:busqueda" element={<CamisetaList camisetas={camisetas} />} />
+        <Route path="/camiseta/:id" element={<CamisetaDetalle camisetas={allCamisetas} />} />
+        <Route path="/busqueda/:busqueda" element={<CamisetaList camisetas={allCamisetas} />} />
       </Routes>
     </div>
   );
