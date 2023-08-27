@@ -9,6 +9,33 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ camisetas, onEquipoSelected }) => {
   const uniqueLigas = [...new Set(camisetas.map((item) => item.liga))];
+
+  const customOrder = [
+    "La Liga",
+    "Premier League",
+    "Serie A",
+    "Ligue 1",
+    "BundesLiga",
+    "MLS",
+    "Kings League",
+    "Other Leagues"
+  ];
+
+  uniqueLigas.sort((ligaA, ligaB) => {
+    const indexA = customOrder.indexOf(ligaA);
+    const indexB = customOrder.indexOf(ligaB);
+    
+    if (indexA === -1) {
+      return 1; // Si no está en customOrder, se coloca al final
+    }
+    
+    if (indexB === -1) {
+      return -1; // Si no está en customOrder, se coloca al final
+    }
+    
+    return indexA - indexB;
+  });
+
   let i = 0;
 
   useEffect(() => {
