@@ -18,7 +18,9 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
 
     return (
         <div className="d-flex">
-            <Sidebar />
+            <Sidebar camisetas={camisetas} onEquipoSelected={function (equipo: string): void {
+                throw new Error('Function not implemented.');
+            } } />
             <Container className="mt-5" style={{ width: '80%' }}>
                 <div className="card mb-3">
                     <div className="row g-0">

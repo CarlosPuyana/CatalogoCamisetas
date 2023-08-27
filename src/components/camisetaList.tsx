@@ -4,29 +4,33 @@ import Sidebar from './NavBars/sidebar.tsx';
 import { Link, useParams } from 'react-router-dom';
 import TopBar from './NavBars/topBar.tsx';
 import camisetaService from '../services/camisetaService.ts';
-import { ICamiseta, ICamisetaDetalleProps } from '../Interfaces/camisetas.ts';
+import { ICamiseta } from '../Interfaces/camisetas.ts';
 
-const CamisetaList: React.FC<ICamisetaListProps> = ({ camisetas }) => {
+const CamisetaList: React.FC<{camisetas: ICamiseta[]}> = ({ camisetas }) => {
 
-  const { busqueda } = useParams();
+  let { busqueda } = useParams();
   const [nuevasCamisetas, setNuevasCamisetas] = useState<ICamiseta[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const camisetasPerPage = 30; // Número de camisetas por página
 
-  console.log(busqueda)
-
   useEffect(() => {
-    async function fetchData() {
-      if (busqueda) {
-        const busquedita = await camisetaService.searchCamisetasByNombre(busqueda);
-        setNuevasCamisetas(busquedita);
-      } else {
-        setNuevasCamisetas(camisetas); // Usar las camisetas originales si no hay búsqueda
-      }
-    }
-    fetchData();
+    fetchData(busqueda);
   }, [busqueda, camisetas]);
+
+  const fetchData = async (query: string | undefined) => {
+    if (query) {
+      const busquedita = await camisetaService.searchCamisetasByNombre(query);
+      setNuevasCamisetas(busquedita);
+      // La busqueda se hace correctamente pero no se filtra en pantalla por algo de la paginacion
+    } else {
+      setNuevasCamisetas(camisetas);
+    }
+  };
+
+  const handleEquipoSelected = (equipo: string) => {
+    fetchData(equipo);
+  };
   
   const camisetasToDisplay = busqueda ? nuevasCamisetas : camisetas;
   const indexOfLastCamiseta = currentPage * camisetasPerPage;
@@ -44,7 +48,7 @@ const CamisetaList: React.FC<ICamisetaListProps> = ({ camisetas }) => {
 
   return (
     <div className="d-flex">
-      <Sidebar />
+      <Sidebar camisetas={camisetas} onEquipoSelected={handleEquipoSelected}/>
       <div className="d-flex flex-column align-items-end">
         <TopBar />
         <Container className="mt-5" style={{ width: '100%' }}>
