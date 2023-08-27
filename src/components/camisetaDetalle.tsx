@@ -3,10 +3,13 @@ import Sidebar from '../components/NavBars/sidebar.tsx';
 import { Container } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
 import { ICamisetaDetalleProps } from '../Interfaces/camisetas.ts';
+import TopBar from './NavBars/topBar.tsx';
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
     const { id } = useParams();
     const camiseta = camisetas.find((c) => c.id === Number(id));
+
+    console.log(camisetas.find(c => c.liga  ))
 
     useEffect(() => {
 
@@ -20,22 +23,25 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
         <div className="d-flex">
             <Sidebar camisetas={camisetas} onEquipoSelected={function (equipo: string): void {
                 throw new Error('Function not implemented.');
-            } } />
-            <Container className="mt-5" style={{ width: '80%' }}>
-                <div className="card mb-3">
-                    <div className="row g-0">
-                        <div className="col-md-4">
-                            <img src={camiseta.imagen} className="img-fluid rounded-start" alt={camiseta.nombre} />
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body">
-                                <h5 className="card-title">{camiseta.nombre}</h5>
-                                <Link to="/">Volver</Link>
+            }} />
+            <div className="d-flex flex-column align-items-end">
+                <TopBar />
+                <Container className="mt-5" style={{ width: '80%' }}>
+                    <div className="card mb-3">
+                        <div className="row g-0">
+                            <div className="col-md-4">
+                                <img src={camiseta.imagen} className="img-fluid rounded-start" alt={camiseta.nombre} />
+                            </div>
+                            <div className="col-md-8">
+                                <div className="card-body">
+                                    <h5 className="card-title">{camiseta.nombre}</h5>
+                                    <Link to="/">Volver</Link>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </Container>
+                </Container>
+            </div>
         </div>
     );
 };

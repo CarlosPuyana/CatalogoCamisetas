@@ -6,7 +6,7 @@ import TopBar from './NavBars/topBar.tsx';
 import camisetaService from '../services/camisetaService.ts';
 import { ICamiseta } from '../Interfaces/camisetas.ts';
 
-const CamisetaList: React.FC<{camisetas: ICamiseta[]}> = ({ camisetas }) => {
+const CamisetaList: React.FC<{camisetas: ICamiseta[], allCamisetas: ICamiseta[]}> = ({ camisetas, allCamisetas }) => {
 
   let { busqueda } = useParams();
   const [nuevasCamisetas, setNuevasCamisetas] = useState<ICamiseta[]>([]);
@@ -48,7 +48,7 @@ const CamisetaList: React.FC<{camisetas: ICamiseta[]}> = ({ camisetas }) => {
 
   return (
     <div className="d-flex">
-      <Sidebar camisetas={camisetas} onEquipoSelected={handleEquipoSelected}/>
+      <Sidebar camisetas={allCamisetas} onEquipoSelected={handleEquipoSelected}/>
       <div className="d-flex flex-column align-items-end">
         <TopBar />
         <Container className="mt-5" style={{ width: '100%' }}>

@@ -26,7 +26,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<CamisetaList camisetas={newCamisetas} />} />
+        <Route path="/" element={<CamisetaList camisetas={newCamisetas} allCamisetas={allCamisetas} />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/add" element={<CamisetaForm />} />
