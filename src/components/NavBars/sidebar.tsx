@@ -3,6 +3,7 @@ import { Accordion } from 'react-bootstrap';
 import { ICamiseta } from '../../Interfaces/camisetas.ts';
 
 const Sidebar: React.FC<{ camisetas: ICamiseta[], onEquipoSelected: (equipo: string) => void }> = ({ camisetas, onEquipoSelected }) => {
+  
   const uniqueLigas = [...new Set(camisetas.map((item) => item.liga))];
   let i = 0;
 

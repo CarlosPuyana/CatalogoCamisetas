@@ -48,11 +48,10 @@ const CamisetaList: React.FC<{camisetas: ICamiseta[], allCamisetas: ICamiseta[]}
 
   return (
     <div className="d-flex">
-      <Sidebar camisetas={allCamisetas} onEquipoSelected={handleEquipoSelected}/>
+      <Sidebar camisetas={camisetas} onEquipoSelected={handleEquipoSelected}/>
       <div className="d-flex flex-column align-items-end">
         <TopBar />
         <Container className="mt-5" style={{ width: '100%' }}>
-          <h2 className="text-center mb-4">Lista de Camisetas</h2>
           <div className="d-flex flex-wrap align-items-stretch">
             { currentCamisetas.map((camiseta) => (
               <div key={camiseta.id} className="mb-4" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>

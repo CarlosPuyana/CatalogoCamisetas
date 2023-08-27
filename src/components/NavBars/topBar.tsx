@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // Importa useHistory
+import { useNavigate } from 'react-router-dom';
 
 interface TopBarProps {
   // Define props
