@@ -72,7 +72,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
                     </div>
                     <br></br>
                     <br></br>
-                    <Link to="/" className="back-link">
+                    <Link to="/" className="boton">
                         Volver
                     </Link>
                     {/**MODAL */}

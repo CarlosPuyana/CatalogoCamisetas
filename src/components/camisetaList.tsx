@@ -68,7 +68,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
               <CamisetaCard key={camiseta.id} camiseta={camiseta} />
             ))}
           </div>
-          <Pagination>
+          <Pagination className='d-flex justify-content-center'>
             {pageNumbers.map((_, number) => (
               <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => paginate(number + 1)}>
                 {number + 1}
@@ -83,11 +83,11 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
 const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
   <div key={camiseta.id} className="mb-4" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
-    <Link to={`/camiseta/${camiseta.id}`}>
-      <div className="card p-2 d-flex flex-column h-100">
-        <img src={camiseta.imagen} className="card-img-top" alt={camiseta.nombre} />
+    <Link style={{ textDecoration: 'none' }} to={`/camiseta/${camiseta.id}`}>
+    <div className="card p-2 d-flex flex-column">
+        <img src={camiseta.imagen} className="card-img" alt={camiseta.nombre} />
         <div className="card-body mt-auto">
-          <p className="card-text mb-0" style={{ fontSize: '0.8rem' }}>{camiseta.nombre}</p>
+          <p className="card-text mb-0 card-title" style={{ fontSize: '0.8rem' }}>{camiseta.nombre}</p>
           <p className="card-text" style={{ fontSize: '0.7rem', color: 'gray', textAlign: 'right' }}>{camiseta.equipo}</p>
         </div>
       </div>
