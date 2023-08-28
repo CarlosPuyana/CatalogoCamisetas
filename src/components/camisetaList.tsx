@@ -10,6 +10,8 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
   const navigate = useNavigate();
   const [camisetasFiltro, setCamisetasFiltro] = useState<ICamiseta[]>(camisetas);
+  const [categorias, setCategorias] = useState([]);
+  const [teams, setTeams] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const camisetasPerPage = 18;
 
@@ -20,6 +22,11 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
       } else {
         setCamisetasFiltro(camisetas);
       }
+
+      const fetchedCategorias = await camisetaService.getCategorias();
+      setCategorias(fetchedCategorias);
+      const fetchedTeams = await camisetaService.getEquipos();
+      setTeams(fetchedTeams);
       setCurrentPage(1);
     };
 
@@ -31,7 +38,6 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   };
 
   const pageNumbers = Array.from({ length: Math.ceil(camisetasFiltro.length / camisetasPerPage) });
-
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
@@ -42,7 +48,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
   return (
     <div className="d-flex">
-      <Sidebar camisetas={camisetas} onEquipoSelected={handleEquipoSelected} />
+      <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} />
       <div className="d-flex flex-column align-items-end">
         <TopBar />
         <Container className="mt-5" style={{ width: '100%' }}>

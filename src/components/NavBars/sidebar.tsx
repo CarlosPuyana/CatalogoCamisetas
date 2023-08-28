@@ -1,41 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { ICamiseta } from '../../Interfaces/camisetas.ts';
+import { ICategoria } from '../../Interfaces/categorias.ts';
+import { ITeam } from '../../Interfaces/teams.ts';
 
 interface SidebarProps {
-  camisetas: ICamiseta[], 
+  teams: ITeam[],
+  categorias: ICategoria[],
   onEquipoSelected: (equipo: string) => void
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ camisetas, onEquipoSelected }) => {
-  const uniqueLigas = [...new Set(camisetas.map((item) => item.liga))];
-
-  const customOrder = [
-    "La Liga",
-    "Premier League",
-    "Serie A",
-    "Ligue 1",
-    "Bundesliga",
-    "MLS",
-    "Kings League",
-    "Other Leagues"
-  ];
-
-  uniqueLigas.sort((ligaA, ligaB) => {
-    const indexA = customOrder.indexOf(ligaA);
-    const indexB = customOrder.indexOf(ligaB);
-    
-    if (indexA === -1) {
-      return 1; // Si no está en customOrder, se coloca al final
-    }
-    
-    if (indexB === -1) {
-      return -1; // Si no está en customOrder, se coloca al final
-    }
-    
-    return indexA - indexB;
-  });
-
+const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected }) => {
   let i = 0;
 
   useEffect(() => {
@@ -46,17 +20,17 @@ const Sidebar: React.FC<SidebarProps> = ({ camisetas, onEquipoSelected }) => {
     <div>
       <div className="logo-container">
         <img src='' alt="Logo" className="logo" />
-        <h2>NOMBRE DE LA WEB</h2>
+        <h2>Camis365</h2>
       </div>
       <Accordion>
-        {uniqueLigas.map((liga) => {
-          const uniqueEquipos = [...new Set(camisetas.filter((camiseta) => camiseta.liga === liga).map((camiseta) => camiseta.equipo))];
+        {categorias.map((liga) => {
+          const equiposLiga = teams.filter(q => q.categoria_id === liga.id);
           return (
-            <Accordion.Item key={liga} eventKey={++i + ""}>
-              <Accordion.Header>{liga}</Accordion.Header>
-              {uniqueEquipos.map((equipo) => (
-                <Accordion.Body key={equipo} onClick={() => onEquipoSelected(equipo)}>
-                  {equipo}
+            <Accordion.Item key={liga.categoria} eventKey={++i + ""}>
+              <Accordion.Header>{liga.categoria}</Accordion.Header>
+              {equiposLiga.map((equipo) => (
+                <Accordion.Body key={equipo.team} onClick={() => onEquipoSelected(equipo.team)}>
+                  {equipo.team}
                 </Accordion.Body>
               ))}
             </Accordion.Item>

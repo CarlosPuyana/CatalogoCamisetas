@@ -12,6 +12,7 @@ function App() {
   // Para esto debería hacerse un servicio propio de momento lo pongo aqui
   const [allCamisetas, setAllCamisetas] = useState([]);
   const [newCamisetas, setNewCamisetas] = useState([]);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -19,6 +20,7 @@ function App() {
       setAllCamisetas(fetchedCamisetas);
       const fetchedNewCamis = await camisetaService.getCamisetasByTemporada('23/24');
       setNewCamisetas(fetchedNewCamis);
+      
     }
     fetchData();
   }, []);

@@ -25,6 +25,22 @@ class CamisetaService {
     }
     return data || [];
   }
+
+  async getCategorias(): Promise<any[]> {
+    const { data, error } = await supabase.from('Categorias').select('*').order('prioridad', { ascending: true });
+    if (error) {
+      throw error;
+    }
+    return data || [];
+  }
+
+  async getEquipos(): Promise<any[]> {
+    const { data, error } = await supabase.from('Teams').select('*').order('prioridad', { ascending: true });
+    if (error) {
+      throw error;
+    }
+    return data || [];
+  }
 }
 
 export default new CamisetaService();

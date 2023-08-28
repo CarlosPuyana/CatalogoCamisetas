@@ -7,6 +7,8 @@ export interface ICamiseta {
     imagen: string;
     nombre: string;
     descripcion: string;
+    categoria_id: number;
+    equipo_id: number;
 }
 
 export interface ICamisetaDetalleProps {
