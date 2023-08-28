@@ -16,6 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected }
     
   }, []);
 
+  
   return (
     <div>
       <div className="logo-container">
@@ -25,9 +26,17 @@ const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected }
       <Accordion>
         {categorias.map((liga) => {
           const equiposLiga = teams.filter(q => q.categoria_id === liga.id);
+          const categoriasNoTeams =
+          liga.categoria === 'Retro' || liga.categoria === 'Kids' ? (
+            <Accordion.Header onClick={() => onEquipoSelected(liga.categoria)}>
+              {liga.categoria}
+            </Accordion.Header>
+          ) : (
+            <Accordion.Header>{liga.categoria}</Accordion.Header>
+          );
           return (
             <Accordion.Item key={liga.categoria} eventKey={++i + ""}>
-              <Accordion.Header>{liga.categoria}</Accordion.Header>
+              {categoriasNoTeams}
               {equiposLiga.map((equipo) => (
                 <Accordion.Body key={equipo.team} onClick={() => onEquipoSelected(equipo.team)}>
                   {equipo.team}
