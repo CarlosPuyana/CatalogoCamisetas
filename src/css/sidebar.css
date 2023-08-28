@@ -8,3 +8,53 @@
 .sidebar-completo {
     width: 50vh;
 }
+
+
+/* Estilo de la hamburguesa */
+.hamburger-button {
+    display: none; /* Ocultar por defecto en pantallas grandes */
+  }
+  
+  /* Estilo de la barra lateral abierta */
+  .sidebar-open .sidebar {
+    visibility: visible;
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Estilo de la barra lateral cerrada */
+  .sidebar {
+    visibility: hidden;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+
+  /* Estilo de la barra lateral abierta en pantallas pequeñas */
+@media (max-width: 1000px) {
+
+    .open {
+        width: 0%;
+    }
+
+    .sidebar-completo-open {
+      visibility: visible !important;
+      width: 80%;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .sidebar-completo {
+        visibility: hidden;
+        width: 0%;
+    }
+
+    .hamburger-button {
+        display: block;
+      }
+      
+      /* Ocultar la hamburguesa cuando la barra lateral está abierta */
+      .sidebar-open .hamburger-button {
+        display: none;
+      }
+  }
+  

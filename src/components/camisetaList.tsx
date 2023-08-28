@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import TopBar from './NavBars/topBar.tsx';
 import camisetaService from '../services/camisetaService.ts';
 import { ICamiseta } from '../Interfaces/camisetas.ts';
+import '../css/sidebar.css';
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
@@ -46,10 +47,20 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const indexOfFirstCamiseta = indexOfLastCamiseta - camisetasPerPage;
   const currentCamisetas = camisetasFiltro.slice(indexOfFirstCamiseta, indexOfLastCamiseta);
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <div className="d-flex">
-      <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} />
-      <div className="d-flex flex-column align-items-end">
+      {/* Botón de hamburguesa */}
+      <button className="hamburger-button" onClick={toggleSidebar}>
+        ☰
+      </button>
+      <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
+      <div className={`${sidebarOpen ? 'open' : ''} d-flex flex-column align-items-end`}>
         <TopBar />
         <Container className="mt-5" style={{ width: '100%' }}>
           <div className="d-flex flex-wrap align-items-stretch">
