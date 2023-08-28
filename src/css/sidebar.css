@@ -1,0 +1,10 @@
+.accordeon {
+    max-width: 300px; /* Ajusta este valor según tus necesidades */
+    max-height: 100vh; /* Ajusta este valor según tus necesidades */
+    overflow-y: auto; /* Añade una barra de desplazamiento si el contenido excede la altura máxima */
+    width: 400px;
+}
+
+.sidebar-completo {
+    width: 50vh;
+}
