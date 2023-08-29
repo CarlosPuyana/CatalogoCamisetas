@@ -108,16 +108,3 @@
     box-shadow: 0 0 0 0 black;
   };
 
-  .card-img {
-    /* clear and add new css */
-  transition: all 0.5s;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.card-title {
-  font-size: 20px;
-  font-weight: 500;
-  color: #323232;
-}

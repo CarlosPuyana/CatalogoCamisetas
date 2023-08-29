@@ -81,13 +81,23 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   );
 };
 
+function truncateString(str, maxLength) {
+  if (str.length > maxLength) {
+    return str.slice(0, maxLength) + '...';
+  } else {
+    return str;
+  }
+}
+
 const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
   <div key={camiseta.id} className="mb-4" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
     <Link style={{ textDecoration: 'none' }} to={`/camiseta/${camiseta.id}`}>
     <div className="card p-2 d-flex flex-column">
+        <div className="card-img-container">
         <img src={camiseta.imagen} className="card-img" alt={camiseta.nombre} />
+        </div>
         <div className="card-body mt-auto">
-          <p className="card-text mb-0 card-title" style={{ fontSize: '0.8rem' }}>{camiseta.nombre}</p>
+          <p className="card-text mb-0 card-title" style={{ fontSize: '0.8rem' }}>{ truncateString(camiseta.nombre, 30)}</p>
           <p className="card-text" style={{ fontSize: '0.7rem', color: 'gray', textAlign: 'right' }}>{camiseta.equipo}</p>
         </div>
       </div>
