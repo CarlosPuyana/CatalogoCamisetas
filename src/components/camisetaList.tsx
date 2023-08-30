@@ -62,8 +62,8 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
       <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
       <div className={`${sidebarOpen ? 'open' : ''} d-flex flex-column align-items-end`}>
         <TopBar />
-        <Container className="mt-5" style={{ width: '100%' }}>
-          <div className="d-flex flex-wrap align-items-stretch">
+        <Container className="mt-5 clasesita" style={{ width: '100%' }}>
+          <div className="d-flex flex-wrap align-items-center clasesita2">
             {currentCamisetas.map((camiseta) => (
               <CamisetaCard key={camiseta.id} camiseta={camiseta} />
             ))}
@@ -90,7 +90,7 @@ function truncateString(str, maxLength) {
 }
 
 const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
-  <div key={camiseta.id} className="mb-4" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
+  <div key={camiseta.id} className="mb-4 align-items-center" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
     <Link style={{ textDecoration: 'none' }} to={`/camiseta/${camiseta.id}`}>
     <div className="cardi p-2 d-flex flex-column">
         <div className="cardi-img-container">

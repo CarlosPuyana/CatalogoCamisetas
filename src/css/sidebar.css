@@ -76,11 +76,22 @@
   color: #323232;
   text-align: center;
 }
+
+@media (min-width: 200px) {
+    .clasesita {
+        width: 100% !important;
+    }
+
+    .clasesita2 {
+        width: auto;
+        flex: auto;
+        justify-content: center;
+    }
+}
   
 
   /* Estilo de la barra lateral abierta en pantallas pequeñas */
-@media (max-width: 1000px) {
-
+@media (min-width: 200px) and (max-width: 1000px) {
     .open {
         width: 0%;
     }
