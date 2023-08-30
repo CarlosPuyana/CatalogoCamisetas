@@ -12,22 +12,27 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected, open }) => {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
   let i = 0;
-
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
   useEffect(() => {
 
   }, []);
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
 
   return (
-    
     <div className={`sidebar-completo${open ? '-open' : ''} d-flex flex-column vh-100 justify-content-center align-items-center`}>
       <div className="logo-container">
         <img src='' alt="Logo" className="logo" />
         <h2>Camis365</h2>
       </div>
-      <div className="accordeon">
+      <button className="hamburger-button" onClick={toggleSidebar}>
+        ☰
+      </button>
+      <div className={`accordeon ${sidebarOpen ? 'open' : ''}`}>
         <Accordion>
           {categorias.map((liga) => {
             const equiposLiga = teams.filter(q => q.categoria_id === liga.id);

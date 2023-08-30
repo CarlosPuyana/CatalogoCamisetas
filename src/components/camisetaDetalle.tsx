@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/NavBars/sidebar.tsx';
 import { Button, Container, Modal } from 'react-bootstrap';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { ICamisetaDetalleProps } from '../Interfaces/camisetas.ts';
-import camisetaService from '../services/camisetaService.ts';
 import TopBar from './NavBars/topBar.tsx';
 import '../css/camisetaDetalle.css';
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
     const { id } = useParams();
     const camiseta = camisetas.find((c) => c.id === Number(id));
-    const [categorias, setCategorias] = useState([]);
-    const [teams, setTeams] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchData = async () => {
-            const fetchedCategorias = await camisetaService.getCategorias();
-            setCategorias(fetchedCategorias);
-            const fetchedTeams = await camisetaService.getEquipos();
-            setTeams(fetchedTeams);
-        }
-        fetchData();
+        
     }, []);
 
     if (!camiseta) {
@@ -39,13 +28,8 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
         setShowModal(false);
     };
 
-    const handleEquipoSelected = (equipo: string) => {
-        navigate(`/busqueda/${equipo}`);
-    };
-
     return (
         <div className="d-flex">
-            <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} />
             <div className="d-flex flex-column align-items-end w-80">
                 <TopBar />
                 <Container className="mt-5" style={{ width: '80%' }}>
