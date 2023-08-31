@@ -49,17 +49,15 @@ function App() {
       <Container>
         <Row>
           <Col>
-            <div className="logo-container">
-              <img src="" alt="Logo" className="logo" />
-              <h2>Camis365</h2>
-            </div>
-          </Col>
-          <Col>
             <TopBar />
           </Col>
         </Row>
         <Row>
           <Col md={2}>
+            <div className="logo-container">
+              <img src="" alt="Logo" className="logo" />
+              <h2>Camis365</h2>
+            </div>
             <Sidebar
               teams={teams}
               categorias={categorias}
