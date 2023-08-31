@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { ICategoria } from '../../Interfaces/categorias.ts';
-import { ITeam } from '../../Interfaces/teams.ts';
+import { ICategoria } from '../../Interfaces/categorias';
+import { ITeam } from '../../Interfaces/teams';
 import '../../css/sidebar.css';
 
 interface SidebarProps {
