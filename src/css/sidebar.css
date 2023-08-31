@@ -73,63 +73,10 @@
   }
 
   .hamburger-button {
-    display: block;
+    display: block !important;
   }
 
   .sidebar-open .hamburger-button {
     display: none;
-  }
-}
-
-/* Estilo de la hamburguesa */
-.hamburger-button {
-  display: none;
-  /* Ocultar por defecto en pantallas grandes */
-}
-
-/* Mostrar la hamburguesa en pantallas pequeñas */
-@media (max-width: 768px) {
-  .hamburger-button {
-    display: block;
-  }
-
-  /* Ocultar la barra lateral cuando la hamburguesa está visible */
-  .hamburger-button.active+.accordeon {
-    visibility: hidden;
-    width: 0;
-    transition: width 0.3s ease-in-out;
-  }
-
-  /* Mostrar la barra lateral cuando se hace clic en la hamburguesa */
-  .hamburger-button.active+.accordeon.openi {
-    visibility: visible;
-    width: 100%;
-  }
-
-  /* Estilo de la barra lateral abierta en pantallas pequeñas */
-  @media (min-width: 200px) and (max-width: 1000px) {
-    .open {
-      width: 0%;
-    }
-
-    .sidebar-completo-open {
-      visibility: visible !important;
-      width: 80%;
-      transition: width 0.3s ease-in-out;
-    }
-
-    .sidebar-completo {
-      visibility: hidden;
-      width: 0%;
-    }
-
-    .hamburger-button {
-      display: block;
-    }
-
-    /* Ocultar la hamburguesa cuando la barra lateral está abierta */
-    .sidebar-open .hamburger-button {
-      display: none;
-    }
   }
 }
