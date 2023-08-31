@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { ICategoria } from '../../Interfaces/categorias.ts';
-import { ITeam } from '../../Interfaces/teams.ts';
+import { ICategoria } from '../../Interfaces/categorias';
+import { ITeam } from '../../Interfaces/teams';
 import '../../css/sidebar.css';
 
 interface SidebarProps {
@@ -12,22 +12,18 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected, open }) => {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
   let i = 0;
-
+  
+  
   useEffect(() => {
 
   }, []);
 
-
   return (
-    
-    <div className={`sidebar-completo${open ? '-open' : ''} d-flex flex-column vh-100 justify-content-center align-items-center`}>
-      <div className="logo-container">
-        <img src='' alt="Logo" className="logo" />
-        <h2>Camis365</h2>
-      </div>
-      <div className="accordeon">
+    <div>
+      
+    <div className={`sidebar-completo${open ? '-open' : ''} d-flex flex-column mr-2 vh-100 justify-content-center align-items-center`}>
+      <div className={`accordeon ${open ? 'open' : ''}`}>
         <Accordion>
           {categorias.map((liga) => {
             const equiposLiga = teams.filter(q => q.categoria_id === liga.id);
@@ -52,6 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected, 
           })}
         </Accordion>
       </div>
+    </div>
     </div>
   );
 };

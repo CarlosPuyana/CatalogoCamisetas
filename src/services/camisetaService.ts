@@ -1,4 +1,4 @@
-import { ICamiseta } from '../Interfaces/camisetas.ts';
+import { ICamiseta } from '../Interfaces/camisetas';
 import supabase from '../supabase.ts';
 
 class CamisetaService {
