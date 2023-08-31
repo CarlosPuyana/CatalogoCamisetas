@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Pagination } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import TopBar from './NavBars/topBar.tsx';
 import camisetaService from '../services/camisetaService.ts';
-import { ICamiseta } from '../Interfaces/camisetas.ts';
+import { ICamiseta } from '../Interfaces/camisetas';
 import '../css/camisetasList.css';
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
@@ -36,7 +35,6 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
   return (
     <div className="d-flex">
-      <TopBar />
       <Container className="mt-5" style={{ width: '100%' }}>
         <div className="d-flex flex-wrap align-items-center">
           {currentCamisetas.map((camiseta) => (
@@ -64,15 +62,14 @@ function truncateString(str, maxLength) {
 }
 
 const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
-  <div key={camiseta.id} className="mb-4" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
+  <div key={camiseta.id} className="mb-4 align-items-center" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
     <Link style={{ textDecoration: 'none' }} to={`/camiseta/${camiseta.id}`}>
-      <div className="card p-2 d-flex flex-column">
-        <div className="card-img-container">
-          <img src={camiseta.imagen} className="card-img" alt={camiseta.nombre} />
+    <div className="cardi p-2 d-flex flex-column">
+        <div className="cardi-img-container">
+        <img src={camiseta.imagen} className="imagen-cardi" alt={camiseta.nombre} />
         </div>
         <div className="card-body mt-auto">
-          <p className="card-text mb-0 card-title" style={{ fontSize: '0.8rem' }}>{truncateString(camiseta.nombre, 30)}</p>
-          <p className="card-text" style={{ fontSize: '0.7rem', color: 'gray', textAlign: 'right' }}>{camiseta.equipo}</p>
+          <p className="card-text mt-4 pt-2 cardi-title" style={{ fontSize: '0.8rem' }}>{ truncateString(camiseta.nombre, 30)}</p>
         </div>
       </div>
     </Link>

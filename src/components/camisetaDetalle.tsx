@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Modal } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
-import { ICamisetaDetalleProps } from '../Interfaces/camisetas.ts';
-import TopBar from './NavBars/topBar.tsx';
+import { ICamisetaDetalleProps } from '../Interfaces/camisetas';
 import '../css/camisetaDetalle.css';
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
@@ -31,7 +30,6 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
     return (
         <div className="d-flex">
             <div className="d-flex flex-column align-items-end w-80">
-                <TopBar />
                 <Container className="mt-5" style={{ width: '80%' }}>
                     <div className="card mb-3">
                         <div className="row g-0">

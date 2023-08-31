@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { ICategoria } from '../../Interfaces/categorias.ts';
-import { ITeam } from '../../Interfaces/teams.ts';
+import { ICategoria } from '../../Interfaces/categorias';
+import { ITeam } from '../../Interfaces/teams';
 import '../../css/sidebar.css';
 
 interface SidebarProps {
@@ -14,22 +14,19 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected, open }) => {
   let i = 0;
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
+  const [hamburgerActive, setHamburgerActive] = useState(false);
   useEffect(() => {
 
   }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    setHamburgerActive(!hamburgerActive);
   };
 
   return (
-    <div className={`sidebar-completo${open ? '-open' : ''} d-flex flex-column vh-100 justify-content-center align-items-center`}>
-      <div className="logo-container">
-        <img src='' alt="Logo" className="logo" />
-        <h2>Camis365</h2>
-      </div>
-      <button className="hamburger-button" onClick={toggleSidebar}>
+    <div className={`sidebar-completo ${open ? '-open' : ''} d-flex flex-column vh-100 justify-content-center align-items-center`}>
+      <button className={`hamburger-button ${hamburgerActive ? 'active' : ''}`} onClick={toggleSidebar}>
         ☰
       </button>
       <div className={`accordeon ${sidebarOpen ? 'open' : ''}`}>
