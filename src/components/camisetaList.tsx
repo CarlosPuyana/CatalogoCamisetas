@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import camisetaService from '../services/camisetaService.ts';
 import { ICamiseta } from '../Interfaces/camisetas';
 import '../css/camisetasList.css';
+import TopBar from './NavBars/topBar.tsx';
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
