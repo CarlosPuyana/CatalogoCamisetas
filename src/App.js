@@ -53,7 +53,7 @@ function App() {
   return (
     <div>
       <Container>
-      <button className="hamburger-button" onClick={toggleSidebar}>
+      <button className="hamburger-button fijar" onClick={toggleSidebar}>
               ☰
             </button>
         <Row>
