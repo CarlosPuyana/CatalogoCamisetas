@@ -18,6 +18,8 @@ function App() {
   const [teams, setTeams] = useState([]);
   const navigate = useNavigate();
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   useEffect(() => {
     async function fetchCamisetas() {
       const fetchedCamisetas = await camisetaService.getAllCamisetas();
@@ -41,14 +43,21 @@ function App() {
     navigate(`/busqueda/${equipo}`);
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <div>
       <Container>
+      <button className="hamburger-button" onClick={toggleSidebar}>
+              ☰
+            </button>
         <Row>
-          <Col md={2}>
-            <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} />
+          <Col className={`${sidebarOpen ? 'mostrando' : 'esconder'}`} md={2}>
+            <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
           </Col>
-          <Col md={10}>
+          <Col className={`${sidebarOpen ? 'mostrar-mitad' : 'mostrar-entero'}`} md={10}>
             <Routes>
               <Route path="/" element={<CamisetaList camisetas={newCamisetas} allCamisetas={allCamisetas} />} />
               <Route path="/register" element={<RegisterForm />} />

@@ -9,7 +9,7 @@
 }
 
 .sidebar-completo {
-  width: 0vh;
+  padding-right: 100px;
 }
 
 /* Estilo de la hamburguesa */
@@ -32,11 +32,35 @@
   transition: width 0.3s ease-in-out;
 }
 
+@media (min-width: 1100px) {
+  .sidebar-completo {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
 /* Estilo de la barra lateral abierta en pantallas pequeñas */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
+
+  .esconder {
+    width: 0 !important;
+    position: absolute;
+  }
+
+  .mostrando {
+    width: 50% !important;
+  }
+
+  .mostrar-entero {
+    width: 100% !important;
+  }
+  .mostrar-mitad {
+    width: 50% !important;
+  }
 
   .open {
-    width: 0%;
+    position: relative;
+    width: 70%;
   }
 
   .sidebar-completo-open {
