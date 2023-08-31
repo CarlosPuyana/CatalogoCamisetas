@@ -48,14 +48,17 @@
   }
 
   .mostrando {
-    width: 50% !important;
+    width: calc(var(--bs-gutter-x) * 20) !important;
+    margin-left: calc(var(--bs-gutter-x) * -4.5);
+    position: absolute;
+    left: calc(var(--bs-gutter-x) * 4.5);
   }
 
   .mostrar-entero {
     width: 100% !important;
   }
   .mostrar-mitad {
-    width: 50% !important;
+    width: 100% !important;
   }
 
   .open {
