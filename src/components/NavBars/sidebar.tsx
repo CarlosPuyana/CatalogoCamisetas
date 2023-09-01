@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({ teams, categorias, onEquipoSelected, 
           {categorias.map((liga) => {
             const equiposLiga = teams.filter(q => q.categoria_id === liga.id);
             const categoriasNoTeams =
-              liga.categoria === 'Retro' || liga.categoria === 'Kids' ? (
+              liga.categoria === 'Retro' || liga.categoria === 'Kids' || liga.categoria === 'Special Edition' ? (
                 <Accordion.Header onClick={() => onEquipoSelected(liga.categoria)}>
                   {liga.categoria}
                 </Accordion.Header>
