@@ -17,6 +17,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
         return <p>No existe</p>;
     }
 
+    camiseta.imagen.replace('\n', '');
     const imagenesSeparadas = camiseta.imagen.split(' | ');
 
     const abrirModal = () => {
