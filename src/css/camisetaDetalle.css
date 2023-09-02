@@ -23,9 +23,8 @@
     flex-wrap: nowrap;
     justify-content: left;
     gap: 10px;
-    /* Espacio entre las fotos */
     margin-top: 20px;
-    /* Espacio entre la tarjeta principal y las fotos */
+    margin: 50px;
     width: 20px;
     height: 300px;
   }
@@ -33,30 +32,22 @@
   /* Estilo para la imagen principal */
   .camiseta-image {
     max-width: 100%;
-    /* Ajusta el ancho máximo de la imagen */
     height: auto;
-    /* La altura se ajustará automáticamente */
   }
 
   .additional-photos img {
     max-width: 300px;
     border-radius: 10px;
-    /* Ajusta el ancho máximo de las imágenes */
     height: auto;
-    /* La altura se ajustará automáticamente */
     margin: 5px;
-    /* Agrega un margen entre las imágenes */
     border: 2px solid transparent;
-    /* Agrega un borde transparente a las imágenes */
     cursor: pointer;
-    /* Cambia el cursor a un dedo señalando */
     transition: border-color 0.3s, transform 0.3s;
-    /* Agrega una transición suave para el color del borde y la transformación */
   }
-  
+
   /* Efecto de "hover" para las imágenes */
   .additional-photos img:hover {
-    border-color: #007bff;
+    border-color: black;
     /* Cambia el color del borde al hacer "hover" */
     transform: scale(1.05);
     /* Aplica una ligera escala a la imagen al hacer "hover" */
@@ -82,8 +73,7 @@
     background-color: #0056b3;
     /* Cambia el color de fondo al pasar el ratón */
   }
-
-
+  
   .boton {
     background-color: white;
     color: black;
@@ -97,14 +87,13 @@
     box-shadow: 0 0 0 0 black;
     text-decoration: none;
   }
-  
+
   .boton:hover {
     transform: translateY(-4px) translateX(-2px);
     box-shadow: 2px 5px 0 0 black;
-  };
-  
+  }
+
   .boton:active {
     transform: translateY(2px) translateX(1px);
     box-shadow: 0 0 0 0 black;
-  };
-
+  }

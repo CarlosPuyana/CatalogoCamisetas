@@ -53,12 +53,9 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
                             <img key={index} src={imagen} alt={`Imagen ${index + 2}`} onClick={abrirModal} />
                         ))}
                     </div>
-                    <br></br>
-                    <br></br>
                     <Link to="/" className="boton">
                         Volver
                     </Link>
-                    {/**MODAL */}
                     <ImagenesModal
                         imagenes={imagenesSeparadas}
                         initialIndex={0}
@@ -83,13 +80,16 @@ const ImagenesModal = ({ imagenes, initialIndex, show, onHide }) => {
     };
 
     return (
-        <Modal show={show} onHide={onHide}>
+        <Modal show={show} onHide={onHide} size="lg">
             <Modal.Body>
-                <img
-                    src={imagenes[currentIndex]}
-                    alt={`${currentIndex + 1}`}
-                    style={{ maxWidth: '100%', height: 'auto' }} // tamanio img
-                />
+                <Link to={imagenes[currentIndex]} target="_blank" style={{ cursor: 'zoom-in', textDecoration: 'none' }}>
+                    <img
+                        src={imagenes[currentIndex]}
+                        alt={`${currentIndex + 1}`}
+                        style={{ maxWidth: '100%', height: 'auto' }}
+                        className="img-fluid"
+                    />
+                </Link>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={imagenAnterior}>
@@ -98,12 +98,13 @@ const ImagenesModal = ({ imagenes, initialIndex, show, onHide }) => {
                 <Button variant="secondary" onClick={siguienteImagen}>
                     Siguiente
                 </Button>
-                <Button variant="primary" onClick={onHide}>
+                <Button variant="danger" onClick={onHide}>
                     Cerrar
                 </Button>
             </Modal.Footer>
         </Modal>
     );
 };
+
 
 export default CamisetaDetalle;
