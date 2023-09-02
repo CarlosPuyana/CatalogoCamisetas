@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Pagination } from 'react-bootstrap';
+import { Container, Pagination, Tooltip } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import camisetaService from '../services/camisetaService.ts';
 import { ICamiseta } from '../Interfaces/camisetas';
+import { TooltipHook } from './hooks/tooltipHook.tsx'
 import '../css/camisetasList.css';
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
@@ -64,15 +65,17 @@ function truncateString(str, maxLength) {
 const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
   <div key={camiseta.id} className="mb-4 align-items-center" style={{ flexBasis: '14%', marginLeft: '10px', marginRight: '10px' }}>
     <Link style={{ textDecoration: 'none' }} to={`/camiseta/${camiseta.id}`}>
-      <div className="cardi p-2 d-flex flex-column">
-        <div className="cardi-img-container">
-          <img src={camiseta.imagen} className="cardi-img" alt={camiseta.nombre} />
+      <TooltipHook text={camiseta.nombre} >
+        <div className="cardi p-2 d-flex flex-column">
+          <div className="cardi-img-container">
+            <img src={camiseta.imagen} className="cardi-img" alt={camiseta.nombre} />
+          </div>
+          <div className="card-body mt-auto">
+            <p className="card-text mb-0 cardi-title" style={{ fontSize: '0.8rem' }}>{truncateString(camiseta.nombre, 30)}</p>
+            <p className="card-text" style={{ fontSize: '0.7rem', color: 'gray', textAlign: 'right' }}>{camiseta.equipo}</p>
+          </div>
         </div>
-        <div className="card-body mt-auto">
-          <p className="card-text mb-0 cardi-title" style={{ fontSize: '0.8rem' }}>{truncateString(camiseta.nombre, 30)}</p>
-          <p className="card-text" style={{ fontSize: '0.7rem', color: 'gray', textAlign: 'right' }}>{camiseta.equipo}</p>
-        </div>
-      </div>
+      </TooltipHook>
     </Link>
   </div>
 );
