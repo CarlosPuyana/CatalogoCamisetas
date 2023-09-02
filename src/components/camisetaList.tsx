@@ -72,8 +72,14 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
           </div>
           <div className="card-body mt-auto">
             <p className="card-text mb-0 cardi-title" style={{ fontSize: '0.8rem' }}>{truncateString(camiseta.nombre, 30)}</p>
-            <p className="card-text" style={{ fontSize: '0.7rem', color: 'gray', textAlign: 'right' }}>{camiseta.equipo}</p>
           </div>
+          <div className="cardi-footer">
+            <div className="cardi-price"><span>$</span> 25</div>
+            <button className="cardi-btn">
+              {camiseta.equipo}
+            </button>
+          </div>
+          
         </div>
       </TooltipHook>
     </Link>

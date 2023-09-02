@@ -46,6 +46,47 @@
   text-align: center;
 }
 
+  
+.cardi-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardi-price {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.cardi-price span {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color-sub);
+}
+
+.cardi-btn {
+  height: 35px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 0 15px;
+  transition: all 0.3s;
+}
+
+.cardi-img:hover {
+  transform: translateY(-3px);
+}
+
+.cardi-btn:hover {
+  border: 2px solid var(--main-focus);
+}
+
+.cardi-btn:active {
+  transform: translateY(3px);
+}
+
 @media (min-width: 200px) {
   .clasesita {
     width: 100% !important;
