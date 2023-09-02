@@ -1,0 +1,65 @@
+/* Estilos para los enlaces en la barra de navegación */
+.navbar-nav .nav-link {
+  margin-right: 20px;
+  /* Espacio entre los elementos */
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  /* Quita la decoración de subrayado */
+  color: #333;
+  /* Color de texto */
+  font-weight: bold;
+  /* Peso de fuente */
+}
+
+/* Estilos para los iconos en los enlaces */
+.navbar-nav .nav-link svg {
+  margin-right: 5px;
+  /* Espacio entre el icono y el texto */
+  font-size: 1.2rem;
+  /* Tamaño del icono */
+}
+
+/* Estilos para el botón de búsqueda */
+.navbar-nav .search-button {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para el espacio entre el botón de búsqueda y los enlaces */
+.navbar-nav .search-button+.nav-link {
+  margin-left: 20px;
+  /* Espacio entre el botón de búsqueda y los enlaces */
+}
+
+/* Estilos para el formulario de búsqueda */
+.navbar-nav .search-form {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el campo de entrada de búsqueda */
+.navbar-nav .search-form .form-control {
+  margin-right: 10px;
+  /* Espacio entre el campo de entrada y el botón de búsqueda */
+  border-color: #333;
+  /* Color del borde del campo de entrada */
+}
+
+/* Estilos para el botón de búsqueda */
+.navbar-nav .search-form .btn {
+  background-color: #28a745;
+  /* Color de fondo del botón de búsqueda */
+  color: #fff;
+  /* Color de texto del botón de búsqueda */
+  border-color: #28a745;
+  /* Color del borde del botón de búsqueda */
+  font-weight: bold;
+  /* Peso de fuente del botón de búsqueda */
+}
+
+/* Estilo para el espacio a la derecha de la barra de navegación */
+.navbar-nav .ml-auto {
+  margin-right: 35px;
+  /* Espacio a la derecha de la barra de navegación */
+}

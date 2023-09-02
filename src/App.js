@@ -9,6 +9,7 @@ import CamisetaDetalle from "./components/camisetaDetalle.tsx";
 import camisetaService from "./services/camisetaService.ts";
 import Sidebar from "./components/NavBars/sidebar.tsx";
 import TopBar from "./components/NavBars/topBar.tsx";
+import PageComponent from "./components/pageComponent.tsx";
 import { Row, Col, Container } from "react-bootstrap";
 
 function App() {
@@ -53,9 +54,12 @@ function App() {
   return (
     <div>
       <Container>
-      <button className="hamburger-button fijar" onClick={toggleSidebar}>
-              ☰
-            </button>
+        <Row>
+          <TopBar />
+          <button className="hamburger-button fijar" onClick={toggleSidebar}>
+            ☰
+          </button>
+        </Row>
         <Row>
           <Col className={`${sidebarOpen ? 'mostrando' : 'esconder'}`} md={2}>
             <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
@@ -82,6 +86,7 @@ function App() {
                 path="/busqueda/:busqueda"
                 element={<CamisetaList camisetas={allCamisetas} />}
               />
+              <Route path="/page/:opc" element={<PageComponent />} />
             </Routes>
           </Col>
         </Row>

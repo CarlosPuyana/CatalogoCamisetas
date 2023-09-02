@@ -10,7 +10,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        
+
     }, []);
 
     if (!camiseta) {

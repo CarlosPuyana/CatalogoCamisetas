@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import camisetaService from '../services/camisetaService.ts';
 import { ICamiseta } from '../Interfaces/camisetas';
 import '../css/camisetasList.css';
-import TopBar from './NavBars/topBar.tsx';
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
@@ -36,7 +35,6 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
   return (
     <div className="d-flex flex-column align-items-end`">
-      <TopBar />
       <Container className="mt-5 mx-5 clasesita" style={{ width: '100%' }}>
         <div className="d-flex flex-wrap align-items-center">
           {currentCamisetas.map((camiseta) => (
