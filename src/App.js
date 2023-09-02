@@ -56,9 +56,15 @@ function App() {
       <Container>
         <Row>
           <TopBar />
-          <button className="hamburger-button fijar" onClick={toggleSidebar}>
+          <input type="checkbox" id="checkbox" onClick={toggleSidebar} />
+          <label for="checkbox" class="toggle ">
+            <div class="bar bar--top"></div>
+            <div class="bar bar--middle"></div>
+            <div class="bar bar--bottom"></div>
+          </label>
+          {/* <button className="hamburger-button" onClick={toggleSidebar}>
             ☰
-          </button>
+          </button> */}
         </Row>
         <Row>
           <Col className={`${sidebarOpen ? 'mostrando' : 'esconder'}`} md={2}>

@@ -73,6 +73,7 @@
   border-radius: 5px;
   padding: 0 15px;
   transition: all 0.3s;
+  font-size: 10px;
 }
 
 .cardi-img:hover {
