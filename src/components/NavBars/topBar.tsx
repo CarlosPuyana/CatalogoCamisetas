@@ -1,26 +1,32 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaHome, FaPhone, FaRuler, FaDollarSign, FaQuestion } from 'react-icons/fa';
-import '../../css/topbar.css';
+import React, { useState } from "react";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  FaHome,
+  FaPhone,
+  FaRuler,
+  FaDollarSign,
+  FaQuestion,
+} from "react-icons/fa";
+import "../../css/topbar.css";
 
 interface TopBarProps {
   // Define props
 }
 
 const TopBar: React.FC<TopBarProps> = () => {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchText === '') navigate('/');
+    if (searchText === "") navigate("/");
     else navigate(`/busqueda/${searchText}`);
   };
 
   return (
-    <div style={{ width: '100%' }}>
-      <Navbar expand="lg" className='d-flex flex-column align-items-end'>
+    <div style={{  width: "100%", paddingTop: "20px", paddingBottom: "20px" }}>
+      <Navbar expand="lg" className="d-flex flex-column align-items-end">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -40,7 +46,7 @@ const TopBar: React.FC<TopBarProps> = () => {
               <FaQuestion /> FAQs
             </Nav.Link>
           </Nav>
-          <Form className='d-flex align-items-center' onSubmit={handleSearch}>
+          <Form className="d-flex align-items-center" onSubmit={handleSearch}>
             <FormControl
               type="text"
               placeholder="Buscar"
@@ -48,10 +54,12 @@ const TopBar: React.FC<TopBarProps> = () => {
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <div style={{ marginRight: '10px' }}></div>
-            <Button variant="outline-success" type="submit" className="ml-2">Buscar</Button>
+            <div style={{ marginRight: "10px" }}></div>
+            <Button variant="outline-success" type="submit" className="ml-2">
+              Buscar
+            </Button>
           </Form>
-          <div style={{ marginRight: '35px' }}></div>
+          <div style={{ marginRight: "35px" }}></div>
         </Navbar.Collapse>
       </Navbar>
     </div>

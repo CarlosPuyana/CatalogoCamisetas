@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import generalService from "../services/generalService.ts";
 import { IPreguntasFrecuentes } from "../Interfaces/IPreguntasFrecuentes.ts";
+import { Accordion } from "react-bootstrap";
 
 const PageComponent: React.FC = () => {
   const { opc } = useParams();
@@ -59,24 +60,25 @@ const PreguntasFrecuentes: React.FC = () => {
 
   useEffect(() => {
     const fetchPreguntasFrecuentes = async () => {
-      if (preguntasFrecuentes.length === 0) {
-        try {
-          const preguntas = await generalService.getPreguntasRespuestasFrecuentes();
-          setPreguntasFrecuentes(preguntas);
-          console.log(preguntas);
-        } catch (error) {
-          console.error("Error al obtener preguntas frecuentes:", error);
-        }
-      }
+      // MEJORAR ESTO
+      setPreguntasFrecuentes(
+        await generalService.getPreguntasRespuestasFrecuentes()
+      );
     };
 
     fetchPreguntasFrecuentes();
   }, [preguntasFrecuentes]);
 
   return (
-    <div>
-      <h2>Preguntas Frecuentes</h2>
-      <p>Respuestas a las preguntas más comunes</p>
+    <div style={{ width: "90%" }}>
+      <Accordion>
+        {preguntasFrecuentes.map((preguntaRespuesta, index) => (
+          <Accordion.Item key={index} eventKey={index + ""}>
+            <Accordion.Header>{preguntaRespuesta.pregunta}</Accordion.Header>
+            <Accordion.Body>{preguntaRespuesta.respuesta}</Accordion.Body>
+          </Accordion.Item>
+        ))}
+      </Accordion>
     </div>
   );
 };

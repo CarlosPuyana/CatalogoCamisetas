@@ -1,15 +1,23 @@
-/* Estilos para los enlaces en la barra de navegación */
+/* Estilo predeterminado para .navbar-nav .nav-link */
 .navbar-nav .nav-link {
-  margin-right: 20px;
-  /* Espacio entre los elementos */
+  margin-right: 50px;
   display: flex;
   align-items: center;
   text-decoration: none !important;
-  /* Quita la decoración de subrayado */
   color: #333;
-  /* Color de texto */
   font-weight: bold;
-  /* Peso de fuente */
+  padding: 10px; /* Ajusta el padding predeterminado */
+  border: 2px solid transparent; /* Borde transparente */
+  transition: border 0.3s, padding 0.6s; /* Agrega transiciones para el borde y el padding */
+}
+
+/* Estilo cuando el cursor pasa por encima */
+.navbar-nav .nav-link:hover {
+  /* Personaliza los estilos que desees */
+  color: white; /* Cambia el color de texto cuando el cursor pasa por encima */
+  background-color: black;
+  border-radius: 15px;
+  padding: 12px; /* Aumenta el padding al pasar el cursor */
 }
 
 /* Estilos para los iconos en los enlaces */
@@ -27,7 +35,7 @@
 }
 
 /* Estilo para el espacio entre el botón de búsqueda y los enlaces */
-.navbar-nav .search-button+.nav-link {
+.navbar-nav .search-button + .nav-link {
   margin-left: 20px;
   /* Espacio entre el botón de búsqueda y los enlaces */
 }
