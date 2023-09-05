@@ -89,6 +89,11 @@
   transform: translateY(3px);
 }
 
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+
 @media (min-width: 200px) {
   .clasesita {
     width: 100% !important;
