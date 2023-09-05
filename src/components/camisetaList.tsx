@@ -15,7 +15,16 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   useEffect(() => {
     const fetchData = async (query: string | undefined) => {
       if (query) {
-        setCamisetasFiltro(await camisetaService.searchCamisetasByNombre(query));
+
+        const buscarCamis = async (q) => {
+          const camisetasde20al25 = await camisetaService.searchCamisetasByNombre(q);
+          const camisetasde70al99 = await camisetaService.searchCamisetasByNombre2(q);
+          const camisetasde00a19 = await camisetaService.searchCamisetasByNombre3(q);
+
+          setCamisetasFiltro(camisetasde20al25.concat(camisetasde70al99).concat(camisetasde00a19));
+        }
+
+        buscarCamis(query);
       } else {
         setCamisetasFiltro(camisetas);
       }

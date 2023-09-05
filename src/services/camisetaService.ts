@@ -19,7 +19,23 @@ class CamisetaService {
   }
 
   async searchCamisetasByNombre(busqueda: string | undefined): Promise<ICamiseta[]> {
-    const { data, error } = await supabase.from('Camisetas').select('*').ilike('nombre', `%${busqueda}%`).order('temporada', { ascending: true });
+    const { data, error } = await supabase.from('Camisetas').select('*').ilike('nombre', `%${busqueda}%`).gt('temporada', 20).lt('temporada', 30).order('temporada', { ascending: false });
+    if (error) {
+      throw error;
+    }
+    return data || [];
+  }
+
+  async searchCamisetasByNombre2(busqueda: string | undefined): Promise<ICamiseta[]> {
+    const { data, error } = await supabase.from('Camisetas').select('*').ilike('nombre', `%${busqueda}%`).gt('temporada', 30).order('temporada', { ascending: false });
+    if (error) {
+      throw error;
+    }
+    return data || [];
+  }
+
+  async searchCamisetasByNombre3(busqueda: string | undefined): Promise<ICamiseta[]> {
+    const { data, error } = await supabase.from('Camisetas').select('*').ilike('nombre', `%${busqueda}%`).gte('temporada', 0).lte('temporada', 19).order('temporada', { ascending: false });
     if (error) {
       throw error;
     }
