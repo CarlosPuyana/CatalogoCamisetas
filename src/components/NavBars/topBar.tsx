@@ -7,6 +7,7 @@ import {
   FaRuler,
   FaDollarSign,
   FaQuestion,
+  FaSearch,
 } from "react-icons/fa";
 import "../../css/topbar.css";
 
@@ -25,7 +26,7 @@ const TopBar: React.FC<TopBarProps> = () => {
   };
 
   return (
-    <div style={{  width: "100%", paddingTop: "20px", paddingBottom: "20px" }}>
+    <div style={{ width: "100%", paddingTop: "20px", paddingBottom: "20px" }}>
       <Navbar expand="lg" className="d-flex flex-column align-items-end">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -47,17 +48,17 @@ const TopBar: React.FC<TopBarProps> = () => {
             </Nav.Link>
           </Nav>
           <Form className="d-flex align-items-center" onSubmit={handleSearch}>
-            <FormControl
+            <input
               type="text"
               placeholder="Buscar"
-              className="mr-sm-2"
+              className="input-text-buscar"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <div style={{ marginRight: "10px" }}></div>
-            <Button variant="outline-success" type="submit" className="ml-2">
-              Buscar
-            </Button>
+
+            <button type="submit" className="button-buscar ml-2">
+              <FaSearch />
+            </button>
           </Form>
           <div style={{ marginRight: "35px" }}></div>
         </Navbar.Collapse>

@@ -10,6 +10,7 @@ import camisetaService from "./services/camisetaService.ts";
 import Sidebar from "./components/NavBars/sidebar.tsx";
 import TopBar from "./components/NavBars/topBar.tsx";
 import PageComponent from "./components/pageComponent.tsx";
+import Footer from "./components/NavBars/footer.tsx";
 import { Row, Col, Container } from "react-bootstrap";
 
 function App() {
@@ -96,7 +97,9 @@ function App() {
             </Routes>
           </Col>
         </Row>
-        <Row>{/** FOOTER */}</Row>
+        <Row>
+          <Footer/>
+        </Row>
       </Container>
     </div>
   );
