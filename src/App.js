@@ -70,7 +70,7 @@ function App() {
           <Col className={`${sidebarOpen ? 'mostrando' : 'esconder'}`} md={2}>
             <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
           </Col>
-          <Col className={`${sidebarOpen ? 'mostrar-mitad' : 'mostrar-entero'}`} md={10}>
+          <Col className={`${sidebarOpen ? 'mostrar-mitad' : 'mostrar-entero'} d-flex justify-content-center`} md={10}>
             <Routes>
               <Route
                 path="/"

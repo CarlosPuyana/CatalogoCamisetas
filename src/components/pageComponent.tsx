@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import generalService from "../services/generalService.ts";
 import { IPreguntasFrecuentes } from "../Interfaces/IPreguntasFrecuentes.ts";
 import { Accordion } from "react-bootstrap";
+import "../css/pageGeneral.css";
 
 const PageComponent: React.FC = () => {
   const { opc } = useParams();
@@ -23,7 +24,7 @@ const PageComponent: React.FC = () => {
       break;
   }
 
-  return <div>{content}</div>;
+  return <div className="container-general-pages">{content}</div>;
 };
 
 const PaginaContacto: React.FC = () => {
@@ -60,17 +61,17 @@ const PreguntasFrecuentes: React.FC = () => {
 
   useEffect(() => {
     const fetchPreguntasFrecuentes = async () => {
-      // MEJORAR ESTO
       setPreguntasFrecuentes(
         await generalService.getPreguntasRespuestasFrecuentes()
       );
     };
 
     fetchPreguntasFrecuentes();
-  }, [preguntasFrecuentes]);
+  }, []);
 
   return (
-    <div style={{ width: "90%" }}>
+    <div>
+      <h1>Preguntas Frecuentes</h1>
       <Accordion>
         {preguntasFrecuentes.map((preguntaRespuesta, index) => (
           <Accordion.Item key={index} eventKey={index + ""}>
