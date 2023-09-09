@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../Interfaces/camisetas";
 import "../css/camisetaDetalle.css";
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const camiseta = camisetas.find((c) => c.id === Number(id));
   const [showModal, setShowModal] = useState(false);
 
@@ -58,9 +59,9 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
               />
             ))}
           </div>
-          <Link to="/" className="boton">
+          <Button onClick={() => navigate(-1)} className="boton">
             Volver
-          </Link>
+          </Button>
           <ImagenesModal
             imagenes={imagenesSeparadas}
             initialIndex={0}

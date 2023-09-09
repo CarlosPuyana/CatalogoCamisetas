@@ -11,7 +11,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const [camisetasFiltro, setCamisetasFiltro] =
     useState<ICamiseta[]>(camisetas);
   const [currentPage, setCurrentPage] = useState(1);
-  const camisetasPerPage = 18;
+  const camisetasPerPage = 20;
 
   useEffect(() => {
     const fetchData = async (query: string | undefined) => {
