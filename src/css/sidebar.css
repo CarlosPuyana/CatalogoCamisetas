@@ -6,6 +6,26 @@
   cursor: pointer;
 }
 
+.accordeon .accordion-button {
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.accordeon .accordion-button:hover {
+  color: white;
+  background-color: #28a745;
+}
+
+.accordeon .accordion-collapse {
+  background-color: white; 
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 1px;
+}
+
 .sidebar-completo {
   padding-right: 100px;
 }
