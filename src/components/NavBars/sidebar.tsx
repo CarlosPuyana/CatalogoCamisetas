@@ -24,7 +24,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div
         className={`sidebar-completo${
           open ? "-open" : ""
-        } d-flex flex-column mr-2 vh-100 justify-content-center align-items-center`}
+        } d-flex flex-column mr-2 justify-content-center align-items-center`}
       >
         <div className={`accordeon ${open ? "open" : ""}`}>
           <Accordion>
