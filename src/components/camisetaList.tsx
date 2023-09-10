@@ -61,7 +61,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
             <CamisetaCard key={camiseta.id} camiseta={camiseta} />
           ))}
         </div>
-        <Pagination className="d-flex justify-content-center">
+        <Pagination className="paginator d-flex justify-content-center">
           {pageNumbers.map((_, number) => (
             <Pagination.Item
               key={number + 1}

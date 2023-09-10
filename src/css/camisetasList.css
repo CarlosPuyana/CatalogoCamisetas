@@ -105,3 +105,18 @@
     justify-content: center;
   }
 }
+
+.paginator .page-link {
+  color: black;
+}
+
+.paginator .page-item.active .page-link {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.paginator .page-item .page-link:hover {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
