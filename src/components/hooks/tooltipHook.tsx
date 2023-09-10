@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../css/tooltip.css";
 
-export const TooltipHook = ({ text, children }) => {
+export const TooltipCursorFollow = ({ text, children }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState({ left: 0, top: 0 });
 
@@ -30,6 +30,20 @@ export const TooltipHook = ({ text, children }) => {
           {text}
         </div>
       )}
+    </div>
+  );
+};
+
+export const TooltipFixed = ({ text, children }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  return (
+    <div
+      className="tooltip-general"
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      {children}
+      {isVisible && <div className="tooltip-text">{text}</div>}
     </div>
   );
 };

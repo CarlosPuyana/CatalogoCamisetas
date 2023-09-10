@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  FaHome,
+  FaTshirt,
   FaPhone,
   FaRuler,
   FaDollarSign,
   FaQuestion,
-  FaSearch,
+  FaSearch
 } from "react-icons/fa";
 import "../../css/topbar.css";
 
@@ -32,7 +32,7 @@ const TopBar: React.FC<TopBarProps> = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/">
-              <FaHome /> Inicio
+              <FaTshirt /> Inicio
             </Nav.Link>
             <Nav.Link as={Link} to="/page/contacto">
               <FaPhone /> Contacto

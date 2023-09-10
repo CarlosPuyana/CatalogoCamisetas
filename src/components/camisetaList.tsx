@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Container, Pagination, Tooltip } from "react-bootstrap";
+import { Container, Pagination } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import camisetaService from "../services/camisetaService.ts";
 import { ICamiseta } from "../Interfaces/camisetas";
-import { TooltipHook } from "./hooks/tooltipHook.tsx";
+import { TooltipCursorFollow } from "./hooks/tooltipHook.tsx";
 import "../css/camisetasList.css";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
@@ -101,14 +101,14 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
           />
         </div>
         <div className="card-body mt-auto">
-          <TooltipHook text={camiseta.nombre}>
+          <TooltipCursorFollow text={camiseta.nombre}>
             <p
               className="card-text mb-0 cardi-title"
               style={{ fontSize: "0.8rem" }}
             >
               {truncateString(camiseta.nombre, 30)}
             </p>
-          </TooltipHook>
+          </TooltipCursorFollow>
         </div>
         <div className="cardi-footer">
           <div className="cardi-price">

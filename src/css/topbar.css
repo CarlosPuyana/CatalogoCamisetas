@@ -1,31 +1,43 @@
-/* Estilo predeterminado para .navbar-nav .nav-link */
 .navbar-nav .nav-link {
-  margin-right: 50px;
   display: flex;
+  margin-right: 50px;
   align-items: center;
-  text-decoration: none !important;
-  color: #333;
+  color: black;
   font-weight: bold;
-  padding: 10px; /* Ajusta el padding predeterminado */
-  border: 2px solid transparent; /* Borde transparente */
-  transition: border 0.3s, padding 0.6s; /* Agrega transiciones para el borde y el padding */
+  padding: 10px;
+  transition: color 0.2s;
+  position: relative;
 }
 
-/* Estilo cuando el cursor pasa por encima */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #28a745;
+  transition: width 0.4s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
 .navbar-nav .nav-link:hover {
-  /* Personaliza los estilos que desees */
-  color: white; /* Cambia el color de texto cuando el cursor pasa por encima */
-  background-color: black;
-  border-radius: 15px;
-  padding: 12px; /* Aumenta el padding al pasar el cursor */
+  text-decoration: none;
+  color: #28a745;
 }
 
-/* Estilos para los iconos en los enlaces */
 .navbar-nav .nav-link svg {
-  margin-right: 5px;
-  /* Espacio entre el icono y el texto */
+  margin-right: 7px;
   font-size: 1.2rem;
-  /* Tamaño del icono */
+}
+
+@media (max-width: 1199px) {
+  .navbar-nav .nav-link {
+    margin-right: 20px;
+  }
 }
 
 /* Estilos para el botón de búsqueda */
