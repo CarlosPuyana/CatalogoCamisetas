@@ -40,23 +40,19 @@ const PaginaContacto: React.FC = () => {
       </p>
       <div className="redes-sociales">
         <Link to="https://wa.me/123456789" target="_blank">
-          <TooltipHook text={"Texto ejemplo"}>
-            <FaWhatsapp size={32} />
-          </TooltipHook>
+          <FaWhatsapp size={32} />
         </Link>
-        <TooltipHook text={"Texto ejemplo"}>
-          <Link to="https://www.tiktok.com/@ejemplo" target="_blank">
-            <FaTiktok size={32} />
-          </Link>
-        </TooltipHook>
-        <TooltipHook text={"Texto ejemplo"}>
-          <Link to="https://www.instagram.com/ejemplo" target="_blank">
-            <FaInstagram size={32} />
-          </Link>
-        </TooltipHook>
+        <Link to="https://www.tiktok.com/@ejemplo" target="_blank">
+          <FaTiktok size={32} />
+        </Link>
+        <Link to="https://www.instagram.com/ejemplo" target="_blank">
+          <FaInstagram size={32} />
+        </Link>
       </div>
       <p>¿Tienes dudas?</p>
-      <Link className="enlace-bonito" to="/page/faqs">Soluciónalas</Link>
+      <Link className="enlace-bonito" to="/page/faqs">
+        Soluciónalas
+      </Link>
     </div>
   );
 };

@@ -37,22 +37,6 @@
   color: grey;
 }
 
-.tooltip-general {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip-text {
-  position: absolute;
-  font-size: small;
-  background-color: black;
-  color: white;
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 4px;
-  min-width: 200px;
-}
-
 .enlace-bonito {
   text-decoration: none;
   background-color: #333;

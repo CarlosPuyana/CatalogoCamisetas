@@ -105,19 +105,3 @@
     justify-content: center;
   }
 }
-
-.tooltip-general {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip-text {
-  position: absolute;
-  transform: translateX(-25%);
-  font-size: smaller;
-  background-color: black;
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
-  min-width: 200px;
-}
