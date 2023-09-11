@@ -58,10 +58,10 @@ function App() {
         <Row>
           <TopBar />
           <input type="checkbox" id="checkbox" onClick={toggleSidebar} />
-          <label for="checkbox" class="toggle ">
-            <div class="bar bar--top"></div>
-            <div class="bar bar--middle"></div>
-            <div class="bar bar--bottom"></div>
+          <label htmlFor="checkbox" className="toggle ">
+            <div className="bar bar--top"></div>
+            <div className="bar bar--middle"></div>
+            <div className="bar bar--bottom"></div>
           </label>
           {/* <button className="hamburger-button" onClick={toggleSidebar}>
             ☰
