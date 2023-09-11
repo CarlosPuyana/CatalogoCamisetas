@@ -17,14 +17,27 @@ const Sidebar: React.FC<SidebarProps> = ({
   onEquipoSelected,
   open,
 }) => {
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
+
+  function quitarEmoji(categoria: string): { categoriaSinEmoji: string, hasEmoji: boolean } {
+    const categoriasEspeciales = ['Retro', 'Baby', 'Kids', 'Women', 'Special Edition'];
+    const isCategoriasEspecial = categoriasEspeciales.some(cat => categoria.includes(cat));
+
+    if (isCategoriasEspecial) {
+      // Si se encontraron emojis, reemplaza todas las coincidencias con una cadena vacía.
+      const categoriaSinEmoji = categoria.replace(/[\uD800-\uDFFF]./g, '');
+      return { categoriaSinEmoji, hasEmoji: true };
+    } else {
+      // Si no se encontraron emojis, la categoría sin cambios y hasEmoji es false.
+      return { categoriaSinEmoji: categoria, hasEmoji: false };
+    }
+  }
 
   return (
     <div>
       <div
-        className={`sidebar-completo${
-          open ? "-open" : ""
-        } d-flex flex-column mr-2 justify-content-center align-items-center`}
+        className={`sidebar-completo${open ? "-open" : ""
+          } d-flex flex-column mr-2 justify-content-center align-items-center`}
       >
         <div className={`accordeon ${open ? "open" : ""}`}>
           <Accordion>
@@ -32,12 +45,13 @@ const Sidebar: React.FC<SidebarProps> = ({
               const equiposLiga = teams.filter(
                 (q) => q.categoria_id === liga.id
               );
+
+              const {categoriaSinEmoji, hasEmoji} = quitarEmoji(liga.categoria);
+
               const categoriasNoTeams =
-                liga.categoria === "Retro" ||
-                liga.categoria === "Kids" ||
-                liga.categoria === "Special Edition" ? (
+                hasEmoji ? (
                   <Accordion.Header
-                    onClick={() => onEquipoSelected(liga.categoria)}
+                    onClick={() => onEquipoSelected(categoriaSinEmoji)}
                   >
                     {liga.categoria}
                   </Accordion.Header>
