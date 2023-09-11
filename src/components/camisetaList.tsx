@@ -42,6 +42,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const pageNumbers = Array.from({
     length: Math.ceil(camisetasFiltro.length / camisetasPerPage),
   });
+
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
@@ -85,40 +86,61 @@ function truncateString(str: string, maxLength: number) {
   }
 }
 
-const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => (
-  <div
-    key={camiseta.id}
-    className="mb-4 align-items-center"
-    style={{ flexBasis: "14%", marginLeft: "10px", marginRight: "10px" }}
-  >
-    <Link style={{ textDecoration: "none" }} to={`/camiseta/${camiseta.id}`}>
-      <div className="cardi p-2 d-flex flex-column">
-        <div className="cardi-img-container">
-          <img
-            src={camiseta.imagen}
-            className="cardi-img"
-            alt={camiseta.nombre}
-          />
-        </div>
-        <div className="card-body mt-auto">
-          <TooltipCursorFollow text={camiseta.nombre}>
-            <p
-              className="card-text mb-0 cardi-title"
-              style={{ fontSize: "0.8rem" }}
-            >
-              {truncateString(camiseta.nombre, 30)}
-            </p>
-          </TooltipCursorFollow>
-        </div>
-        <div className="cardi-footer">
-          <div className="cardi-price">
-            <span>$</span> 25
+const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
+  // TODO Mejorar esto y trasladar el img a un componente propio
+  useEffect(() => {
+    const blurDivs = document.querySelectorAll(".cardi-img-container");
+    blurDivs.forEach((element) => {
+      const img = element.querySelector("img");
+      console.log(img);
+      function loaded() {
+        element.classList.add("loaded");
+      }
+
+      if (img?.complete) {
+        loaded();
+      } else {
+        img?.addEventListener("load", loaded);
+      }
+    });
+  });
+
+  return (
+    <div
+      key={camiseta.id}
+      className="mb-4 align-items-center"
+      style={{ flexBasis: "14%", marginLeft: "10px", marginRight: "10px" }}
+    >
+      <Link style={{ textDecoration: "none" }} to={`/camiseta/${camiseta.id}`}>
+        <div className="cardi p-2 d-flex flex-column">
+          <div className="cardi-img-container">
+            <img
+              src={camiseta.imagen}
+              className="cardi-img"
+              alt={camiseta.nombre}
+              loading="lazy"
+            />
           </div>
-          <button className="cardi-btn">{camiseta.equipo}</button>
+          <div className="card-body mt-auto">
+            <TooltipCursorFollow text={camiseta.nombre}>
+              <p
+                className="card-text mb-0 cardi-title"
+                style={{ fontSize: "0.8rem" }}
+              >
+                {truncateString(camiseta.nombre, 30)}
+              </p>
+            </TooltipCursorFollow>
+          </div>
+          <div className="cardi-footer">
+            <div className="cardi-price">
+              <span>$</span> 25
+            </div>
+            <button className="cardi-btn">{camiseta.equipo}</button>
+          </div>
         </div>
-      </div>
-    </Link>
-  </div>
-);
+      </Link>
+    </div>
+  );
+};
 
 export default CamisetaList;
