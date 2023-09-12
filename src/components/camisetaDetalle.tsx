@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../Interfaces/camisetas";
+import { OptimizeImage } from "./hooks/OptimizeImage.tsx";
 import "../css/camisetaDetalle.css";
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
@@ -34,11 +35,8 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
           <div className="card mb-3">
             <div className="row g-0">
               <div className="col-md-2">
-                <img
-                  src={camiseta.imagen}
-                  className="img-fluid rounded-start camiseta-image"
-                  alt={camiseta.nombre}
-                />
+                {/** Mannana arreglo esto para que coincida con los estilos */}
+                <OptimizeImage src={camiseta.imagen} alt={camiseta.nombre} />
               </div>
               <div className="col-md-4">
                 <div className="card-body">
@@ -50,9 +48,9 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
             </div>
           </div>
           <div className="additional-photos">
+            {/** Mannana arreglo esto para que coincida con los estilos */}
             {imagenesSeparadas.map((imagen, index) => (
-              <img
-                key={index}
+              <OptimizeImage
                 src={imagen}
                 alt={`Imagen ${index + 2}`}
                 onClick={abrirModal}

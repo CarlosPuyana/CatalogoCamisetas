@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import camisetaService from "../services/camisetaService.ts";
 import { ICamiseta } from "../Interfaces/camisetas";
 import { TooltipCursorFollow } from "./hooks/tooltipHook.tsx";
+import { OptimizeImage } from "./hooks/OptimizeImage.tsx";
 import "../css/camisetasList.css";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
@@ -87,24 +88,6 @@ function truncateString(str: string, maxLength: number) {
 }
 
 const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
-  // TODO Mejorar esto y trasladar el img a un componente propio
-  useEffect(() => {
-    const blurDivs = document.querySelectorAll(".cardi-img-container");
-    blurDivs.forEach((element) => {
-      const img = element.querySelector("img");
-      console.log(img);
-      function loaded() {
-        element.classList.add("loaded");
-      }
-
-      if (img?.complete) {
-        loaded();
-      } else {
-        img?.addEventListener("load", loaded);
-      }
-    });
-  });
-
   return (
     <div
       key={camiseta.id}
@@ -113,14 +96,7 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
     >
       <Link style={{ textDecoration: "none" }} to={`/camiseta/${camiseta.id}`}>
         <div className="cardi p-2 d-flex flex-column">
-          <div className="cardi-img-container">
-            <img
-              src={camiseta.imagen}
-              className="cardi-img"
-              alt={camiseta.nombre}
-              loading="lazy"
-            />
-          </div>
+          <OptimizeImage src={camiseta.imagen} alt={camiseta.nombre} />
           <div className="card-body mt-auto">
             <TooltipCursorFollow text={camiseta.nombre}>
               <p
