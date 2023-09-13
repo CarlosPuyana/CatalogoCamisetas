@@ -96,7 +96,12 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
     >
       <Link style={{ textDecoration: "none" }} to={`/camiseta/${camiseta.id}`}>
         <div className="cardi p-2 d-flex flex-column">
-          <OptimizeImage src={camiseta.imagen} alt={camiseta.nombre} />
+          <OptimizeImage
+            src={camiseta.imagen}
+            alt={camiseta.nombre}
+            clasNameImg="cardi-img"
+            classNameContainer="cardi-img-container"
+          />
           <div className="card-body mt-auto">
             <TooltipCursorFollow text={camiseta.nombre}>
               <p

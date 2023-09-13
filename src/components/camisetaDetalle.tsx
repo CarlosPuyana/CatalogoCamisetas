@@ -35,8 +35,11 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
           <div className="card mb-3">
             <div className="row g-0">
               <div className="col-md-2">
-                {/** Mannana arreglo esto para que coincida con los estilos */}
-                <OptimizeImage src={camiseta.imagen} alt={camiseta.nombre} />
+                <OptimizeImage
+                  src={camiseta.imagen}
+                  alt={camiseta.nombre}
+                  clasNameImg="img-fluid rounded-start camiseta-image"
+                />
               </div>
               <div className="col-md-4">
                 <div className="card-body">
@@ -48,12 +51,12 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
             </div>
           </div>
           <div className="additional-photos">
-            {/** Mannana arreglo esto para que coincida con los estilos */}
             {imagenesSeparadas.map((imagen, index) => (
               <OptimizeImage
                 src={imagen}
                 alt={`Imagen ${index + 2}`}
                 onClick={abrirModal}
+                clasNameImg="camiseta-image"
               />
             ))}
           </div>
@@ -95,11 +98,10 @@ const ImagenesModal = ({ imagenes, initialIndex, show, onHide }) => {
           target="_blank"
           style={{ cursor: "zoom-in", textDecoration: "none" }}
         >
-          <img
+          <OptimizeImage
             src={imagenes[currentIndex]}
             alt={`${currentIndex + 1}`}
-            style={{ maxWidth: "100%", height: "auto" }}
-            className="img-fluid"
+            clasNameImg="img-fluid"
           />
         </Link>
       </Modal.Body>

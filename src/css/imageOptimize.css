@@ -1,17 +1,19 @@
-.cardi-img {
-  /* clear and add new css */
-  transition: all 0.5s;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 150px;
-  border-radius: 5px;
+.optimize-img-container {
   object-position: center;
-}
-
-.cardi-img-container {
-  max-height: 150px;
-  background-size: auto;
+  background-size: 100%;
   background-position: center;
   background-image: url("../assets/imgs/placeholder_shirt.png");
+}
+
+.optimize-img {
+  
+}
+
+.optimize-img-container.loaded > .optimize-img {
+  opacity: 1;
+}
+
+.optimize-img-container > .optimize-img {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }

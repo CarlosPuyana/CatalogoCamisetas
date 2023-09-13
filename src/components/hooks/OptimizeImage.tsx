@@ -4,11 +4,13 @@ import "../../css/imageOptimize.css";
 export const OptimizeImage = ({
   src,
   alt = "",
-  onClick = () => {}
+  classNameContainer = "",
+  clasNameImg = "",
+  onClick = () => {},
 }) => {
   useEffect(() => {
     // TODO: Mejorar esto
-    const blurDivs = document.querySelectorAll(".cardi-img-container");
+    const blurDivs = document.querySelectorAll(".optimize-img-container");
     blurDivs.forEach((element) => {
       const img = element.querySelector("img");
       console.log(img);
@@ -23,11 +25,12 @@ export const OptimizeImage = ({
       }
     });
   });
+
   return (
-    <div className="cardi-img-container">
+    <div className={`${classNameContainer} optimize-img-container`}>
       <img
         src={src}
-        className="cardi-img"
+        className={`${clasNameImg} optimize-img`}
         alt={alt}
         loading="lazy"
         onClick={onClick}
