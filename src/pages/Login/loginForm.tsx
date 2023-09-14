@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../supabase.ts';
+import { auth } from '../../context/supabase/supabase.ts';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const LoginForm: React.FC = () => {
       }
     }
     checkSession();
-  }, []); // El segundo argumento vacío asegura que esto solo se ejecute una vez al montar el componente
+  }, [navigate]); // El segundo argumento vacío asegura que esto solo se ejecute una vez al montar el componente
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

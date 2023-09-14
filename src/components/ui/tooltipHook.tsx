@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../css/tooltip.css";
+import "../../assets/css/tooltip.css";
 
 export const TooltipCursorFollow = ({ text, children }) => {
   const [isVisible, setIsVisible] = useState(false);

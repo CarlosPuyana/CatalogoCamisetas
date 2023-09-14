@@ -1,5 +1,5 @@
-import { ICamiseta } from '../Interfaces/camisetas';
-import supabase from '../supabase.ts';
+import { ICamiseta } from '../../interfaces/ICamiseta';
+import supabase from '../supabase/supabase.ts';
 
 class CamisetaService {
   async getAllCamisetas(): Promise<ICamiseta[]> {
@@ -59,4 +59,5 @@ class CamisetaService {
   }
 }
 
-export default new CamisetaService();
+const camisetaService = new CamisetaService();
+export default camisetaService;

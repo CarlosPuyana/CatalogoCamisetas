@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../../css/imageOptimize.css";
+import "../../assets/css/imageOptimize.css";
 
 export const OptimizeImage = ({
   src,
@@ -13,7 +13,6 @@ export const OptimizeImage = ({
     const blurDivs = document.querySelectorAll(".optimize-img-container");
     blurDivs.forEach((element) => {
       const img = element.querySelector("img");
-      console.log(img);
       function loaded() {
         element.classList.add("loaded");
       }

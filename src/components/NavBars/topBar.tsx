@@ -9,7 +9,7 @@ import {
   FaQuestion,
   FaSearch
 } from "react-icons/fa";
-import "../../css/topbar.css";
+import "../../assets/css/topbar.css";
 
 interface TopBarProps {
   // Define props

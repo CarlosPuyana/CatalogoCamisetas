@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import generalService from "../services/generalService.ts";
-import { IPreguntasFrecuentes } from "../Interfaces/IPreguntasFrecuentes.ts";
 import { Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { TooltipHook } from "./hooks/tooltipHook.tsx";
 import { FaWhatsapp, FaTiktok, FaInstagram } from "react-icons/fa";
-import "../css/pageGeneral.css";
+import generalService from "../../context/services/generalService.ts";
+import { IPreguntasFrecuentes } from "../../interfaces/IPreguntasFrecuentes.ts";
+import "../../assets/css/pageGeneral.css";
 
 const PageComponent: React.FC = () => {
   const { opc } = useParams();

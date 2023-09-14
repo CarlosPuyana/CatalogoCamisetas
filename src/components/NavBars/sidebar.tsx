@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Accordion } from "react-bootstrap";
-import { ICategoria } from "../../Interfaces/categorias";
-import { ITeam } from "../../Interfaces/teams";
-import "../../css/sidebar.css";
+import { ICategoria } from "../../interfaces/ICategorias";
+import { ITeam } from "../../interfaces/ITeams";
+import "../../assets/css/sidebar.css";
 
 interface SidebarProps {
   teams: ITeam[];
@@ -17,15 +17,26 @@ const Sidebar: React.FC<SidebarProps> = ({
   onEquipoSelected,
   open,
 }) => {
-  useEffect(() => { }, []);
+  useEffect(() => {}, []);
 
-  function quitarEmoji(categoria: string): { categoriaSinEmoji: string, hasEmoji: boolean } {
-    const categoriasEspeciales = ['Retro', 'Baby', 'Kids', 'Women', 'Special Edition'];
-    const isCategoriasEspecial = categoriasEspeciales.some(cat => categoria.includes(cat));
+  function quitarEmoji(categoria: string): {
+    categoriaSinEmoji: string;
+    hasEmoji: boolean;
+  } {
+    const categoriasEspeciales = [
+      "Retro",
+      "Baby",
+      "Kids",
+      "Women",
+      "Special Edition",
+    ];
+    const isCategoriasEspecial = categoriasEspeciales.some((cat) =>
+      categoria.includes(cat)
+    );
 
     if (isCategoriasEspecial) {
       // Si se encontraron emojis, reemplaza todas las coincidencias con una cadena vacía.
-      const categoriaSinEmoji = categoria.replace(/[\uD800-\uDFFF]./g, '');
+      const categoriaSinEmoji = categoria.replace(/[\uD800-\uDFFF]./g, "");
       return { categoriaSinEmoji, hasEmoji: true };
     } else {
       // Si no se encontraron emojis, la categoría sin cambios y hasEmoji es false.
@@ -36,8 +47,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <div>
       <div
-        className={`sidebar-completo${open ? "-open" : ""
-          } d-flex flex-column mr-2 justify-content-center align-items-center`}
+        className={`sidebar-completo${
+          open ? "-open" : ""
+        } d-flex flex-column mr-2 justify-content-center align-items-center`}
       >
         <div className={`accordeon ${open ? "open" : ""}`}>
           <Accordion>
@@ -46,18 +58,19 @@ const Sidebar: React.FC<SidebarProps> = ({
                 (q) => q.categoria_id === liga.id
               );
 
-              const {categoriaSinEmoji, hasEmoji} = quitarEmoji(liga.categoria);
+              const { categoriaSinEmoji, hasEmoji } = quitarEmoji(
+                liga.categoria
+              );
 
-              const categoriasNoTeams =
-                hasEmoji ? (
-                  <Accordion.Header
-                    onClick={() => onEquipoSelected(categoriaSinEmoji)}
-                  >
-                    {liga.categoria}
-                  </Accordion.Header>
-                ) : (
-                  <Accordion.Header>{liga.categoria}</Accordion.Header>
-                );
+              const categoriasNoTeams = hasEmoji ? (
+                <Accordion.Header
+                  onClick={() => onEquipoSelected(categoriaSinEmoji)}
+                >
+                  {liga.categoria}
+                </Accordion.Header>
+              ) : (
+                <Accordion.Header>{liga.categoria}</Accordion.Header>
+              );
               return (
                 <Accordion.Item key={liga.categoria} eventKey={index + ""}>
                   {categoriasNoTeams}

@@ -1,5 +1,5 @@
-import { IPreguntasFrecuentes } from "../Interfaces/IPreguntasFrecuentes.ts";
-import supabase from "../supabase.ts";
+import { IPreguntasFrecuentes } from "../../interfaces/IPreguntasFrecuentes";
+import supabase from "../supabase/supabase.ts";
 
 class GeneralService {
     async getPreguntasRespuestasFrecuentes(): Promise<IPreguntasFrecuentes[]> {
@@ -11,4 +11,5 @@ class GeneralService {
         return data || [];
     }
 }
-export default new GeneralService();
+const generalService = new GeneralService(); 
+export default generalService;

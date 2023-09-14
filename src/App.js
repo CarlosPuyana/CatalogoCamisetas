@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import CamisetaList from "./components/camisetaList.tsx";
-import RegisterForm from "./components/Auth/registerForm.tsx";
-import LoginForm from "./components/Auth/loginForm.tsx";
-import CamisetaForm from "./components/camisetaForm.tsx";
-import CamisetaDetalle from "./components/camisetaDetalle.tsx";
-import camisetaService from "./services/camisetaService.ts";
+import CamisetaList from "./pages/HomeCamisetas/camisetaList.tsx";
+import RegisterForm from "./pages/Registro/registerForm.tsx";
+import LoginForm from "./pages/Login/loginForm.tsx";
+import CamisetaForm from "./pages/FormCamisetas/camisetaForm.tsx";
+import CamisetaDetalle from "./pages/DetalleCamiseta/camisetaDetalle.tsx";
+import camisetaService from "./context/services/camisetaService.ts";
 import Sidebar from "./components/NavBars/sidebar.tsx";
 import TopBar from "./components/NavBars/topBar.tsx";
-import PageComponent from "./components/pageComponent.tsx";
+import PageComponent from "./pages/Precios/pageComponent.tsx"; // CUANDO SE TERMINE DE MODULARIZAR CAMBIAR
 import Footer from "./components/NavBars/footer.tsx";
 import { Row, Col, Container } from "react-bootstrap";
 
 function App() {
-  // Para esto debería hacerse un servicio propio de momento lo pongo aqui
   const [allCamisetas, setAllCamisetas] = useState([]);
   const [newCamisetas, setNewCamisetas] = useState([]);
   const [categorias, setCategorias] = useState([]);

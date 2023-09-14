@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import camisetaService from "../services/camisetaService.ts";
-import { ICamiseta } from "../Interfaces/camisetas";
-import { TooltipCursorFollow } from "./hooks/tooltipHook.tsx";
-import { OptimizeImage } from "./hooks/OptimizeImage.tsx";
-import "../css/camisetasList.css";
+import camisetaService from "../../context/services/camisetaService.ts";
+import { ICamiseta } from "../../interfaces/ICamiseta.ts";
+import { TooltipCursorFollow } from "../../components/ui/tooltipHook.tsx";
+import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
+import "../../assets/css/camisetasList.css";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();

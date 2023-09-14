@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { ICamisetaDetalleProps } from "../Interfaces/camisetas";
-import { OptimizeImage } from "./hooks/OptimizeImage.tsx";
-import "../css/camisetaDetalle.css";
+import { ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
+import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
+import "../../assets/css/camisetaDetalle.css";
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
   const { id } = useParams();
