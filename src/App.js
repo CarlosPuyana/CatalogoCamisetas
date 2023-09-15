@@ -93,11 +93,17 @@ function App() {
                 element={<CamisetaList camisetas={allCamisetas} />}
               />
               <Route path="/page/:opc" element={<PageComponent />} />
+              <Route path="*" element={
+                <CamisetaList
+                  camisetas={newCamisetas}
+                  allCamisetas={allCamisetas}
+                />
+              } />
             </Routes>
           </Col>
         </Row>
         <Row>
-          <Footer/>
+          <Footer />
         </Row>
       </Container>
     </div>
