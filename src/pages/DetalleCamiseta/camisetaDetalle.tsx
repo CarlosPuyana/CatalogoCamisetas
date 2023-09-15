@@ -60,9 +60,9 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
               />
             ))}
           </div>
-          <Button onClick={() => navigate(-1)} className="boton">
+          <button onClick={() => navigate(-1)} className="boton">
             Volver
-          </Button>
+          </button>
           <ImagenesModal
             imagenes={imagenesSeparadas}
             initialIndex={0}
