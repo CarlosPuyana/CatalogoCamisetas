@@ -6,6 +6,9 @@
     margin-top: 10px;
     /* Espacio entre la imagen y el nombre */
     margin-left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
   }
 
   /* Estilo para la tarjeta principal */
@@ -33,6 +36,8 @@
   .camiseta-image {
     max-width: 100%;
     height: auto;
+    box-sizing: border-box;
+    padding: 5px;
   }
 
   .additional-photos img {
