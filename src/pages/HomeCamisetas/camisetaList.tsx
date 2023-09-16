@@ -114,7 +114,7 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
           </div>
           <div className="cardi-footer">
             <div className="cardi-price">
-              <span>$</span> 25
+              <span>€</span> 25
             </div>
             <button className="cardi-btn">{camiseta.equipo}</button>
           </div>

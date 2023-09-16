@@ -92,6 +92,15 @@
   color: #000000;
 }
 
+.paginator {
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  display: flex !important;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
 @media (min-width: 200px) {
   .clasesita {
     width: 100% !important;
