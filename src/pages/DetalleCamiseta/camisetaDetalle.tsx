@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, Modal } from "react-bootstrap";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
 import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
+import { ModalCarruselImagenes } from "../../components/ui/Modals.tsx"
 import "../../assets/css/camisetaDetalle.css";
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
@@ -63,7 +64,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
           <button onClick={() => navigate(-1)} className="boton">
             Volver
           </button>
-          <ImagenesModal
+          <ModalCarruselImagenes
             imagenes={imagenesSeparadas}
             initialIndex={0}
             show={showModal}
@@ -72,51 +73,6 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
         </Container>
       </div>
     </div>
-  );
-};
-
-const ImagenesModal = ({ imagenes, initialIndex, show, onHide }) => {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
-
-  const imagenAnterior = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? imagenes.length - 1 : prevIndex - 1
-    );
-  };
-
-  const siguienteImagen = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === imagenes.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  return (
-    <Modal show={show} onHide={onHide} size="lg">
-      <Modal.Body>
-        <Link
-          to={imagenes[currentIndex]}
-          target="_blank"
-          style={{ cursor: "zoom-in", textDecoration: "none" }}
-        >
-          <OptimizeImage
-            src={imagenes[currentIndex]}
-            alt={`${currentIndex + 1}`}
-            clasNameImg="img-fluid"
-          />
-        </Link>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={imagenAnterior}>
-          Anterior
-        </Button>
-        <Button variant="secondary" onClick={siguienteImagen}>
-          Siguiente
-        </Button>
-        <Button variant="danger" onClick={onHide}>
-          Cerrar
-        </Button>
-      </Modal.Footer>
-    </Modal>
   );
 };
 
