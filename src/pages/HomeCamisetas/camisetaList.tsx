@@ -6,6 +6,7 @@ import { ICamiseta } from "../../interfaces/ICamiseta.ts";
 import { TooltipCursorFollow } from "../../components/ui/tooltipHook.tsx";
 import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
 import "../../assets/css/camisetasList.css";
+import { logo } from "../../assets/imgs/logo.svg"
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
@@ -59,6 +60,14 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     <div className="d-flex flex-column align-items-end`">
       <Container className="mt-5 mx-5 clasesita" style={{ width: "100%" }}>
         <div className="d-flex flex-wrap align-items-center">
+          <hr></hr>
+          {camisetasFiltro.map(e => (
+          e.destacada === true ? <CamisetaCard key={e.id} camiseta={e}/> : ''
+          ))}
+        </div>
+        <hr style={{width: "85%"}}></hr>
+        <div className="d-flex flex-wrap align-items-center">
+          
           {currentCamisetas.map((camiseta) => (
             <CamisetaCard key={camiseta.id} camiseta={camiseta} />
           ))}
@@ -108,7 +117,11 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
                 className="card-text mb-0 cardi-title"
                 style={{ fontSize: "0.8rem" }}
               >
-                {truncateString(camiseta.nombre, 30)}
+                {
+                camiseta.destacada ? 
+                '🔥' + truncateString(camiseta.nombre, 30) + '🔥' 
+                : truncateString(camiseta.nombre, 30)
+                }
               </p>
             </TooltipCursorFollow>
           </div>
