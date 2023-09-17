@@ -5,8 +5,8 @@
   background-image: url("../../assets/imgs/placeholder_shirt.png");
 }
 
-.optimize-img {
-  
+.optimize-img-container.loaded {
+  background-image: none;
 }
 
 .optimize-img-container.loaded > .optimize-img {
@@ -16,4 +16,7 @@
 .optimize-img-container > .optimize-img {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
+}
+
+.optimize-img {
 }
