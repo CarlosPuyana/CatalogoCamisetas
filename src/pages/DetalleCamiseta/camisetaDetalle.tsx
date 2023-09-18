@@ -3,7 +3,8 @@ import { Container } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
 import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
-import { ModalCarruselImagenes } from "../../components/ui/Modals.tsx"
+import { ModalCarruselImagenes } from "../../components/ui/Modals.tsx";
+import { ToastModular } from "../../components/ui/Toasts.tsx";
 import "../../assets/css/camisetaDetalle.css";
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
@@ -13,9 +14,14 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {}, []);
-
+  
   if (!camiseta) {
-    return <p>No existe</p>;
+    return (
+      <ToastModular
+        toastHeader={"Error"}
+        toastMsg={"Sucedió algo inesperado!"}
+      />
+    );
   }
 
   camiseta.imagen.replace("\n", "");
@@ -66,7 +72,6 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
           </button>
           <ModalCarruselImagenes
             imagenes={imagenesSeparadas}
-            initialIndex={0}
             show={showModal}
             onHide={cerrarModal}
           />

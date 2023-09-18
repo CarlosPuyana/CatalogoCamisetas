@@ -1,9 +1,33 @@
 import React, { useState } from "react";
-import { Button, Col, Modal, Row } from "react-bootstrap";
+import { Button, Carousel, Col, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { OptimizeImage } from "./OptimizeImage.tsx";
 
-export const ModalCarruselImagenes = ({
+export const ModalCarruselImagenes= ({ imagenes, show, onHide }) => {
+  return (
+    <Modal show={show} onHide={onHide} size="lg" data-bs-theme="dark">
+      <Carousel>
+        {imagenes.map((imagen, index) => (
+          <Carousel.Item key={index}>
+            <Link
+              to={imagen}
+              target="_blank"
+              style={{ cursor: "zoom-in", textDecoration: "none" }}
+            >
+              <OptimizeImage
+                clasNameImg="rounded img-fluid"
+                src={imagen}
+                alt={`img ${++index}`}
+              />
+            </Link>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </Modal>
+  );
+};
+
+export const ModalCarruselImagenesLogico = ({
   imagenes,
   initialIndex = 0,
   show,
@@ -50,7 +74,7 @@ export const ModalCarruselImagenes = ({
               <OptimizeImage
                 src={imagenes[currentIndex]}
                 alt={`${currentIndex + 1}`}
-                clasNameImg="img-fluid"
+                clasNameImg="rounded img-fluid"
               />
             </Link>
           </Col>
@@ -70,18 +94,6 @@ export const ModalCarruselImagenes = ({
           </Col>
         </Row>
       </Modal.Body>
-      <Modal.Footer style={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          variant="danger"
-          onClick={onHide}
-          style={{
-            width: "50%",
-            fontSize: "14px",
-          }}
-        >
-          Cerrar
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };
