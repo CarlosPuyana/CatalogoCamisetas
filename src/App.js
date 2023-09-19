@@ -9,7 +9,7 @@ import CamisetaDetalle from "./pages/DetalleCamiseta/camisetaDetalle.tsx";
 import camisetaService from "./context/services/camisetaService.ts";
 import Sidebar from "./components/NavBars/sidebar.tsx";
 import TopBar from "./components/NavBars/topBar.tsx";
-import PageComponent from "./pages/Precios/pageComponent.tsx"; // CUANDO SE TERMINE DE MODULARIZAR CAMBIAR
+import PageComponent from "./pages/GeneralPage/pageComponent.tsx";
 //import Footer from "./components/NavBars/footer.tsx";
 import { Row, Col, Container } from "react-bootstrap";
 
