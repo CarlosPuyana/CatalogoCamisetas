@@ -1,0 +1,21 @@
+.toast-general {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast-normal {
+  background: #333;
+  color: #fff;
+}
+
+.toast-error {
+  background: red;
+  color: #fff;
+}
+
+.toast-info {
+  background: blue;
+  color: #fff;
+}

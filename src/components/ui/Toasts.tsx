@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Toast } from "react-bootstrap";
+import "../../assets/css/toast.css";
+export const ToastModular = ({
+  toastMsg,
+  toastHeader,
+  toastType = "toast-normal",
+}) => {
+  const [show, setShow] = useState(true);
 
-export const ToastModular = ({ toastMsg, toastHeader }) => {
+  const cerrarToast = () => {
+    setShow(false);
+  };
+
   return (
     <Toast
-      style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 9999 }}
+      onClose={cerrarToast}
+      show={show}
+      delay={4000}
+      autohide
+      className={`toast-general ${toastType}`}
     >
-      <Toast.Header>{toastHeader}</Toast.Header>
+      <Toast.Header closeButton>
+        <strong className="me-auto">{toastHeader}</strong>
+      </Toast.Header>
       <Toast.Body>{toastMsg}</Toast.Body>
     </Toast>
   );

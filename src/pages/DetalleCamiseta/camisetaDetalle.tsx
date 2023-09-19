@@ -20,6 +20,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
       <ToastModular
         toastHeader={"Error"}
         toastMsg={"Sucedió algo inesperado!"}
+        toastType="toast-error"
       />
     );
   }

@@ -1,9 +1,18 @@
+/* CSS */
 .general-footer {
   width: 100%;
-  height: 100%;
+  position: relative;
+  bottom: -200px;
+  transition: bottom 0.5s ease-in-out;
+  margin: 50px;
 }
 
-@media screen and (max-width: 767px) {
+.footer-visible {
+  bottom: 0;
+  
+}
+
+@media screen and (max-width: 991px) {
   .general-footer {
     display: none;
   }
