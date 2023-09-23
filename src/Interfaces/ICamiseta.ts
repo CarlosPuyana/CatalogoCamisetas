@@ -10,6 +10,7 @@ export interface ICamiseta {
   categoria_id: number;
   equipo_id: number;
   destacada: boolean;
+  destacadaGlobal: boolean;
 }
 
 export interface ICamisetaDetalleProps {

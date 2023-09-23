@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import camisetaService from "../../context/services/camisetaService.ts";
 import { ICamiseta } from "../../interfaces/ICamiseta.ts";
 import { TooltipCursorFollow } from "../../components/ui/tooltipHook.tsx";
@@ -12,6 +12,8 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
   const [camisetasFiltro, setCamisetasFiltro] =
     useState<ICamiseta[]>(camisetas);
+  const [camisetasTopFiltro, setCamisetasTopFiltro] =
+    useState<ICamiseta[]>();
   const [currentPage, setCurrentPage] = useState(1);
   const camisetasPerPage = 20;
 
@@ -34,6 +36,10 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
         buscarCamis(query);
       } else {
+        const camisetasTop = await camisetaService.getAllCamisetasTop()
+        console.log(camisetasTop);
+        setCamisetasTopFiltro(camisetasTop);
+        console.log(camisetasTopFiltro);
         setCamisetasFiltro(camisetas);
       }
       setCurrentPage(1);
@@ -57,19 +63,27 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     indexOfLastCamiseta
   );
 
+  const location = useLocation();
+
   return (
     <div className="d-flex flex-column align-items-end`">
       <Container className="mt-5 mx-5 clasesita" style={{ width: "100%" }}>
         <div className="d-flex flex-wrap align-items-center">
           <hr></hr>
-          {camisetasFiltro.map((e) =>
-            e.destacada === true ? <CamisetaCard key={e.id} camiseta={e} /> : ""
+          {
+          location.pathname === '/' ? 
+          camisetasTopFiltro?.map((e) =>
+            e.destacadaGlobal === true ? <CamisetaCard key={e.id} camiseta={e} top={true} /> : ""
+          )
+          :
+          camisetasFiltro.map((e) =>
+            e.destacada === true ? <CamisetaCard key={e.id} camiseta={e} top={true} /> : ""
           )}
         </div>
         <hr style={{ width: "85%" }}></hr>
         <div className="d-flex flex-wrap align-items-center">
           {currentCamisetas.map((camiseta) => (
-            <CamisetaCard key={camiseta.id} camiseta={camiseta} />
+            <CamisetaCard key={camiseta.id} camiseta={camiseta} top={false} />
           ))}
         </div>
         <Pagination className="paginator d-flex justify-content-center">
@@ -90,7 +104,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
 
 
-const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
+const CamisetaCard: React.FC<{ camiseta: ICamiseta, top: boolean }> = ({ camiseta, top }) => {
   return (
     <div
       key={camiseta.id}
@@ -111,9 +125,9 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta }> = ({ camiseta }) => {
                 className="card-text mb-0 cardi-title"
                 style={{ fontSize: "0.8rem" }}
               >
-                {camiseta.destacada
-                  ? "🔥" + truncateString(camiseta.nombre, 30) + "🔥"
-                  : truncateString(camiseta.nombre, 30)}
+                {
+                top === true ? "🔥" + truncateString(camiseta.nombre, 30) + "🔥" : truncateString(camiseta.nombre, 30)
+                }
               </p>
             </TooltipCursorFollow>
           </div>

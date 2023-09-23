@@ -10,6 +10,14 @@ class CamisetaService {
     return data || [];
   }
 
+  async getAllCamisetasTop(): Promise<ICamiseta[]> {
+    const { data, error } = await supabase.from('Camisetas').select('*').eq('destacadaGlobal', true).order('temporada', { ascending: true });
+    if (error) {
+      throw error;
+    }
+    return data || [];
+  }
+
   async getCamisetasByTemporada(temporada: string): Promise<ICamiseta[]> {
     const { data, error } = await supabase.from('Camisetas').select('*').eq('temporada', temporada).order('temporada', { ascending: true });
     if (error) {
