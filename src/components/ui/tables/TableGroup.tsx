@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import TableGenerator from "./TableGenerator.tsx";
+import "../../../assets/css/tableGroup.css";
 
 const TableGroup: React.FC<{ arrayTablas }> = ({ arrayTablas }) => {
-  const [tablaSeleccionada, setTablaSeleccionada] = useState(null);
+  const [tablaSeleccionada, setTablaSeleccionada] = useState(arrayTablas[0]);
 
   const handleClickTabla = (tabla) => {
     setTablaSeleccionada(tabla);
@@ -11,18 +12,18 @@ const TableGroup: React.FC<{ arrayTablas }> = ({ arrayTablas }) => {
 
   return (
     <Container>
-      <div>
+      <div className="tableSelectorContainer">
         {arrayTablas.map((tabla, index) => (
           <Button
             key={index}
-            variant="outline-primary"
+            className="button"
             onClick={() => handleClickTabla(tabla)}
           >
             {tabla.cabeceraTabla}
           </Button>
         ))}
       </div>
-      <div>
+      <div className="tableContainer">
         {tablaSeleccionada && <TableGenerator tabla={tablaSeleccionada} />}
       </div>
     </Container>

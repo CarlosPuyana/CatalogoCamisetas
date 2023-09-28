@@ -98,11 +98,11 @@
   background-color: #28a745;
   color: #fff;
   font-weight: bold;
-  border: 2px solid #28a745;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 17px;
   cursor: pointer;
+  border: none;
 }
 
 .button-buscar:hover {
