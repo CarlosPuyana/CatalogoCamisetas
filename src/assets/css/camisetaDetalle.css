@@ -1,122 +1,122 @@
-  /* Estilo para el nombre de la camiseta */
+/* Estilo para el nombre de la camiseta */
+.camiseta-title {
+  width: max-content;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+}
+
+/* Estilo para la tarjeta principal */
+.card {
+  width: 100%;
+  border: none;
+  /* Elimina el borde de la tarjeta */
+  margin-bottom: 20px;
+  /* Espacio entre las tarjetas */
+}
+
+/* Estilo para la imagen principal */
+.camiseta-image {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.tallas-selector {
+  margin-top: 20px;
+}
+
+.btn-talla {
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+  background-color: #28a745;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-talla:hover {
+  background-color: #218838;
+}
+
+.additional-photos {
+  display: flex;
+  justify-content: left;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+
+.additional-photos img {
+  max-width: 350px;
+  border-radius: 15px;
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: white;
+}
+
+.botones-container {
+  gap: 30px;
+}
+
+.boton {
+  background-color: white;
+  color: black;
+  border-radius: 10em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 black;
+  text-decoration: none;
+}
+
+.boton:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+
+.boton:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 black;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
   .camiseta-title {
-    width: max-content;
     font-size: 1.5rem;
     /* Tamaño de fuente del nombre */
     margin-top: 10px;
     /* Espacio entre la imagen y el nombre */
     margin-left: 0;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 5px;
-  }
-
-  /* Estilo para la tarjeta principal */
-  .card {
-    width: 100%;
-    border: none;
-    /* Elimina el borde de la tarjeta */
-    margin-bottom: 20px;
-    /* Espacio entre las tarjetas */
   }
 
   /* Estilo para las fotos adicionales */
-  .additional-photos {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
-    gap: 10px;
-    margin-top: 20px;
-    margin: 50px;
-    width: 20px;
-    height: 300px;
-  }
-
-  /* Estilo para la imagen principal */
-  .camiseta-image {
-    max-width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 5px;
-  }
-
-  .additional-photos img {
-    max-width: 300px;
-    border-radius: 10px;
-    height: auto;
-    margin: 5px;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-
-  /* Efecto de "hover" para las imágenes */
-  .additional-photos img:hover {
-    border-color: black;
-    /* Cambia el color del borde al hacer "hover" */
-    transform: scale(1.05);
-    /* Aplica una ligera escala a la imagen al hacer "hover" */
-  }
-
-  /* Estilo para el enlace de "Volver" */
-  .back-link {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    /* Color de fondo */
-    color: white;
-    /* Color del texto */
-    text-decoration: none;
-    /* Quita el subrayado del enlace */
-    border-radius: 4px;
-    /* Bordes redondeados */
-    transition: background-color 0.3s ease;
-    /* Transición de color de fondo al pasar el ratón */
-  }
-
-  .back-link:hover {
-    background-color: white;
-    /* Cambia el color de fondo al pasar el ratón */
-  }
-  
-  .boton {
-    background-color: white;
-    color: black;
-    border-radius: 10em;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 1em 2em;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border: 1px solid black;
-    box-shadow: 0 0 0 0 black;
-    text-decoration: none;
-  }
-
-  .boton:hover {
-    color: black;
-    background-color: white;
-    border-color: black;
-    transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 black;
-  }
-
-  .boton:active {
-    transform: translateY(2px) translateX(1px);
-    box-shadow: 0 0 0 0 black;
-  }
-
-
-  @media screen and (min-width: 700px) and (max-width: 1200px) {
-    .camiseta-title {
-      font-size: 1.5rem;
-      /* Tamaño de fuente del nombre */
-      margin-top: 10px;
-      /* Espacio entre la imagen y el nombre */
-      margin-left: 0;
-    }
-
-    /* Estilo para las fotos adicionales */
   .additional-photos {
     display: flex;
     flex-wrap: wrap;
@@ -134,24 +134,24 @@
   .boton {
     display: none;
   }
+}
+
+@media screen and (max-width: 699px) {
+  .additional-photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 10px;
+    margin-top: 20px;
+    margin: 50px;
+    width: 20px;
+    height: 300px;
+    width: 100% !important;
+    position: relative;
+    right: 7%;
   }
 
-  @media screen and (max-width: 699px) {
-    .additional-photos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: left;
-      gap: 10px;
-      margin-top: 20px;
-      margin: 50px;
-      width: 20px;
-      height: 300px;
-      width: 100% !important;
-      position: relative;
-      right: 7%;
-    }
-
-    .boton {
-      display: none;
-    }
+  .boton {
+    display: none;
   }
+}
