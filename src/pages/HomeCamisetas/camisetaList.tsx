@@ -46,6 +46,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     };
 
     fetchData(busqueda);
+    // eslint-disable-next-line
   }, [busqueda, camisetas]);
 
   const pageNumbers = Array.from({
