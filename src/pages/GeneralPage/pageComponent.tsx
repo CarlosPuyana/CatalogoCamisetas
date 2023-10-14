@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import PreciosComponent from "../Precios/preciosComponent.tsx";
-import TallasComponent from "../Tallas/tallasComponent.tsx";
-import ContactoComponent from "../Contacto/contactoComponent.tsx";
-import PreguntasFrecuentesComponent from "../PreguntasFrecuentes/preguntasFrecuentes.tsx";
 import "../../assets/css/pageGeneral.css";
+import ContactoComponent from "../Contacto/contactoComponent";
+import TallasComponent from "../Tallas/tallasComponent";
+import PreciosComponent from "../Precios/preciosComponent";
+import PreguntasFrecuentesComponent from "../PreguntasFrecuentes/preguntasFrecuentes";
 
 const PageComponent: React.FC = () => {
   const { opc } = useParams();

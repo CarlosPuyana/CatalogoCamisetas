@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IPreguntasFrecuentes } from "../../interfaces/IPreguntasFrecuentes.ts";
-import generalService from "../../context/services/generalService.ts";
+import generalService from "../../context/services/generalService";
 import { Accordion } from "react-bootstrap";
+import { IPreguntasFrecuentes } from "../../Interfaces/IPreguntasFrecuentes";
 
 const PreguntasFrecuentesComponent: React.FC = () => {
   const [preguntasFrecuentes, setPreguntasFrecuentes] = useState<

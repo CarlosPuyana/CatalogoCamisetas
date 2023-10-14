@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
-import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
-import { ModalCarruselImagenes } from "../../components/ui/Modals.tsx";
-import { ToastModular } from "../../components/ui/Toasts.tsx";
 import "../../assets/css/camisetaDetalle.css";
+import { ToastModular } from "../../components/ui/Toasts";
+import { OptimizeImage } from "../../components/ui/OptimizeImage";
+import { ModalCarruselImagenes } from "../../components/ui/Modals";
+
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
   const { id } = useParams();

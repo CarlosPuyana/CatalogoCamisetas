@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../../assets/css/tooltip.css";
 
-export const TooltipCursorFollow = ({ text, children }) => {
+export const TooltipCursorFollow = ({ text, children }: any) => {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState({ left: 0, top: 0 });
 
-  const showTooltip = (e) => {
+  const showTooltip = (e: any) => {
     setPosition({ left: e.pageX, top: e.pageY });
     setIsVisible(true);
   };
@@ -34,7 +34,7 @@ export const TooltipCursorFollow = ({ text, children }) => {
   );
 };
 
-export const TooltipFixed = ({ text, children }) => {
+export const TooltipFixed = ({ text, children }: any) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <div

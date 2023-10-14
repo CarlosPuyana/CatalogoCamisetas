@@ -5,7 +5,7 @@ export const ToastModular = ({
   toastMsg,
   toastHeader,
   toastType = "toast-normal",
-}) => {
+}: any) => {
   const [show, setShow] = useState(true);
 
   const cerrarToast = () => {

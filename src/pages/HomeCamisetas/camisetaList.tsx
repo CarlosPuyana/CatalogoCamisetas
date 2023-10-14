@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
-import camisetaService from "../../context/services/camisetaService.ts";
-import { ICamiseta } from "../../interfaces/ICamiseta.ts";
-import { TooltipCursorFollow } from "../../components/ui/tooltipHook.tsx";
-import { OptimizeImage } from "../../components/ui/OptimizeImage.tsx";
-import {truncateString} from "../../utils/utilsStrings.tsx"
 import "../../assets/css/camisetasList.css";
+import camisetaService from "../../context/services/camisetaService";
+import { ICamiseta, ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
+import { OptimizeImage } from "../../components/ui/OptimizeImage";
+import { TooltipCursorFollow } from "../../components/ui/tooltipHook";
+import { truncateString } from "../../utils/utilsStrings";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
@@ -20,7 +20,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   useEffect(() => {
     const fetchData = async (query: string | undefined) => {
       if (query) {
-        const buscarCamis = async (q) => {
+        const buscarCamis = async (q: any) => {
           const camisetasde20al25 =
             await camisetaService.searchCamisetasByNombre(q);
           const camisetasde70al99 =

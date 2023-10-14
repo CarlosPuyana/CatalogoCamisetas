@@ -1,8 +1,9 @@
-import { IPreguntasFrecuentes } from "../../interfaces/IPreguntasFrecuentes";
-import supabase from "../supabase/supabase.ts";
+
+import supabase from "../supabase/supabase";
+
 
 class GeneralService {
-    async getPreguntasRespuestasFrecuentes(): Promise<IPreguntasFrecuentes[]> {
+    async getPreguntasRespuestasFrecuentes(): Promise<any[]> {
         const {data, error} = await supabase.from('Preguntas_frecuentes').select('*');
         console.log(data)
         if(error) {

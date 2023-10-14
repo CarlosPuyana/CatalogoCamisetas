@@ -7,7 +7,7 @@ export const OptimizeImage = ({
   classNameContainer = "",
   clasNameImg = "",
   onClick = () => {},
-}) => {
+}: any) => {
   useEffect(() => {
     // TODO: Mejorar esto
     const blurDivs = document.querySelectorAll(".optimize-img-container");

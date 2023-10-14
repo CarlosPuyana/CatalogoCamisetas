@@ -1,5 +1,20 @@
-import { ICamiseta } from '../../interfaces/ICamiseta';
-import supabase from '../supabase/supabase.ts';
+
+import supabase from "../supabase/supabase";
+
+export interface ICamiseta {
+  id: number;
+  create_at: number;
+  equipo: string;
+  liga: string;
+  temporada: string;
+  imagen: string;
+  nombre: string;
+  descripcion: string;
+  categoria_id: number;
+  equipo_id: number;
+  destacada: boolean;
+  destacadaGlobal: boolean;
+}
 
 class CamisetaService {
   async getAllCamisetas(): Promise<ICamiseta[]> {

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Carousel, Col, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { OptimizeImage } from "./OptimizeImage.tsx";
+import { OptimizeImage } from "./OptimizeImage";
 
-export const ModalCarruselImagenes= ({ imagenes, show, onHide }) => {
+export const ModalCarruselImagenes= ({ imagenes, show, onHide }: any) => {
   return (
     <Modal show={show} onHide={onHide} size="lg" data-bs-theme="dark">
       <Carousel>
-        {imagenes.map((imagen, index) => (
+        {imagenes.map((imagen: any, index: any) => (
           <Carousel.Item key={index}>
             <Link
               to={imagen}
@@ -32,17 +32,17 @@ export const ModalCarruselImagenesLogico = ({
   initialIndex = 0,
   show,
   onHide,
-}) => {
+}: any) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const imagenAnterior = () => {
-    setCurrentIndex((prevIndex) =>
+    setCurrentIndex((prevIndex: any) =>
       prevIndex === 0 ? imagenes.length - 1 : prevIndex - 1
     );
   };
 
   const siguienteImagen = () => {
-    setCurrentIndex((prevIndex) =>
+    setCurrentIndex((prevIndex: any) =>
       prevIndex === imagenes.length - 1 ? 0 : prevIndex + 1
     );
   };

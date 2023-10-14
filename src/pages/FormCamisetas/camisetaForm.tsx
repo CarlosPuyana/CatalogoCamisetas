@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import supabase, { auth } from "../../context/supabase/supabase.ts";
+import supabase, { auth } from "../../context/supabase/supabase";
 
 const CamisetaForm: React.FC = () => {
   const navigate = useNavigate();
