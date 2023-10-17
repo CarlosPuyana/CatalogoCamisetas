@@ -12,7 +12,6 @@ export interface ICamiseta {
   destacada: boolean;
   destacadaGlobal: boolean;
 }
-
 export interface ICamisetaDetalleProps {
   camisetas: ICamiseta[];
 }
