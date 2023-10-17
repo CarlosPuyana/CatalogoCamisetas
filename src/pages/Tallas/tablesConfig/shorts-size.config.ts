@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 
 export const SHORTS_SIZE: ITableProperties = {
   cabeceraTabla: "Shorts Size",

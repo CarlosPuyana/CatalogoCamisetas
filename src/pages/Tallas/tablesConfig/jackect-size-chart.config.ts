@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 
 export const JACKECT_SIZE_CHART: ITableProperties = {
   cabeceraTabla: "Jacket size chart",

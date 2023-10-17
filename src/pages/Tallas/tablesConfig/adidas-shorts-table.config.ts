@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 
 export const ADIDAS_SHORTS_TABLE: ITableProperties = {
   cabeceraTabla: "Adidas Player Shorts Size Chart",

@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 
 export const PLAYER_VERSION_MEN_SIZE: ITableProperties = {
   cabeceraTabla: "Player Version Men Size",

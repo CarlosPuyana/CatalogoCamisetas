@@ -3,7 +3,7 @@ import { Container, Pagination } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import "../../assets/css/camisetasList.css";
 import camisetaService from "../../context/services/camisetaService";
-import { ICamiseta, ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
+import { ICamiseta, ICamisetaDetalleProps } from "../../interfaz/ICamiseta";
 import { OptimizeImage } from "../../components/ui/OptimizeImage";
 import { TooltipCursorFollow } from "../../components/ui/tooltipHook";
 import { truncateString } from "../../utils/utilsStrings";

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Accordion } from "react-bootstrap";
 import "../../assets/css/sidebar.css";
-import { ITeam } from "../../interfaces/ITeams";
-import { ICategoria } from "../../interfaces/ICategorias";
+import { ITeam } from "../../interfaz/ITeams";
+import { ICategoria } from "../../interfaz/ICategorias";
 
 interface SidebarProps {
   teams: ITeam[];

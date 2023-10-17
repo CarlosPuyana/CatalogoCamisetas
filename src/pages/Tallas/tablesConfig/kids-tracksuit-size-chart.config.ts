@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 
 export const KIDS_TRACKSUIT_SIZE_CHART: ITableProperties = {
   cabeceraTabla: "Kids tracksuit Size Chart",

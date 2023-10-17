@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
-import { ICamisetaDetalleProps } from "../../interfaces/ICamiseta";
+import { ICamisetaDetalleProps } from "../../interfaz/ICamiseta";
 import "../../assets/css/camisetaDetalle.css";
 import { ToastModular } from "../../components/ui/Toasts";
 import { OptimizeImage } from "../../components/ui/OptimizeImage";

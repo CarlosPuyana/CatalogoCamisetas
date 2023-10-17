@@ -1,5 +1,5 @@
 import React from "react";
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 import { Container, Table } from "react-bootstrap";
 
 const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {

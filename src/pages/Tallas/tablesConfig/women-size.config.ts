@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaces/ITableProperties";
+import { ITableProperties } from "../../../interfaz/ITableProperties";
 
 export const WOMEN_SIZE: ITableProperties = {
   cabeceraTabla: "Women",
