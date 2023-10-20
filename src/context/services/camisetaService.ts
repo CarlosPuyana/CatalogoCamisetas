@@ -34,7 +34,7 @@ class CamisetaService {
   }
 
   async getCamisetasByTemporada(temporada: string): Promise<ICamiseta[]> {
-    const { data, error } = await supabase.from('Camisetas').select('*').eq('temporada', temporada).order('create_at', { ascending: true });
+    const { data, error } = await supabase.from('Camisetas').select('*').eq('temporada', temporada).order('created_at', { ascending: true });
     if (error) {
       throw error;
     }
