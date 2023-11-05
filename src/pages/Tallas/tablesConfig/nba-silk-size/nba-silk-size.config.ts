@@ -1,4 +1,4 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
 
 export const NBA_SILK_SIZE: ITableProperties = {
   cabeceraTabla: "NBA Silk Size",

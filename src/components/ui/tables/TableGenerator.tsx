@@ -14,6 +14,15 @@ const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {
             ))}
           </tr>
         </thead>
+        <tbody>
+          {tabla.servicioDatos.filas.map((fila: string[] | number[]) => {
+            <tr>
+              {fila.map((valor: string | number) => (
+                <td>{valor}</td>
+              ))}
+            </tr>;
+          })}
+        </tbody>
       </Table>
     </Container>
   );

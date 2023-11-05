@@ -1,7 +1,7 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
 
-export const SHORTS_SIZE: ITableProperties = {
-  cabeceraTabla: "Shorts Size",
+export const PANTS_SIZE: ITableProperties = {
+  cabeceraTabla: "Pants Size",
   columnas: [
     {
       header: "Size",

@@ -1,7 +1,7 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
 
-export const PLAYER_VERSION_MEN_SIZE: ITableProperties = {
-  cabeceraTabla: "Player Version Men Size",
+export const WOMEN_SIZE: ITableProperties = {
+  cabeceraTabla: "Women",
   columnas: [
     {
       header: "Size",
@@ -19,10 +19,6 @@ export const PLAYER_VERSION_MEN_SIZE: ITableProperties = {
       header: "Height",
       className: "",
     },
-    {
-      header: "Weight",
-      className: "",
-    }
   ],
   servicioDatos: undefined,
 };

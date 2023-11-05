@@ -1,18 +1,18 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
 
-export const TRAINING_JERSEY_SIZE: ITableProperties = {
-  cabeceraTabla: "Training Jersey Size",
+export const PLAYER_VERSION_MEN_SIZE: ITableProperties = {
+  cabeceraTabla: "Player Version Men Size",
   columnas: [
     {
       header: "Size",
       className: "",
     },
     {
-      header: "Chest",
+      header: "Comprimiento",
       className: "",
     },
     {
-      header: "Sleeve",
+      header: "Width",
       className: "",
     },
     {
@@ -22,7 +22,7 @@ export const TRAINING_JERSEY_SIZE: ITableProperties = {
     {
       header: "Weight",
       className: "",
-    },
+    }
   ],
   servicioDatos: undefined,
 };

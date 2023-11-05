@@ -1,18 +1,18 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
 
-export const WINDBREAKER_SIZE: ITableProperties = {
-  cabeceraTabla: "Windbreaker Size",
+export const TRAINING_JERSEY_SIZE: ITableProperties = {
+  cabeceraTabla: "Training Jersey Size",
   columnas: [
     {
       header: "Size",
       className: "",
     },
     {
-      header: "Length",
+      header: "Chest",
       className: "",
     },
     {
-      header: "Bust",
+      header: "Sleeve",
       className: "",
     },
     {

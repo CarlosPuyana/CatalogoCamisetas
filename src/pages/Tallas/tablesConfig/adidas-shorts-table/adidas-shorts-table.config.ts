@@ -1,4 +1,5 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { ADIDAS_SHORTS_TABLE_DATA } from "../tables.data";
 
 export const ADIDAS_SHORTS_TABLE: ITableProperties = {
   cabeceraTabla: "Adidas Player Shorts Size Chart",
@@ -28,5 +29,5 @@ export const ADIDAS_SHORTS_TABLE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: ADIDAS_SHORTS_TABLE_DATA,
 };

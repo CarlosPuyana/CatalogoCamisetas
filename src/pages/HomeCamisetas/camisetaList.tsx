@@ -3,7 +3,7 @@ import { Container, Pagination } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 import "../../assets/css/camisetasList.css";
 import camisetaService from "../../context/services/camisetaService";
-import { ICamiseta, ICamisetaDetalleProps } from "../../interfaz/ICamiseta";
+import { ICamiseta } from "../../interfaz/ICamiseta";
 import { OptimizeImage } from "../../components/ui/OptimizeImage";
 import { TooltipCursorFollow } from "../../components/ui/tooltipHook";
 import { truncateString } from "../../utils/utilsStrings";
@@ -136,7 +136,9 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta, top: boolean }> = ({ camiset
             <div className="cardi-price">
               <span>€</span> 25
             </div>
-            <button className="cardi-btn">{camiseta.equipo}</button>
+            <Link to={`/busqueda/${camiseta.equipo}`}>
+               <button className="cardi-btn">{camiseta.equipo}</button>
+            </Link>
           </div>
         </div>
       </Link>

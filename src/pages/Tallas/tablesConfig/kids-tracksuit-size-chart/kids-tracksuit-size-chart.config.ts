@@ -1,4 +1,5 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { KIDS_TRACKSUIT_SIZE_CHART_DATA } from "../tables.data";
 
 export const KIDS_TRACKSUIT_SIZE_CHART: ITableProperties = {
   cabeceraTabla: "Kids tracksuit Size Chart",
@@ -24,5 +25,5 @@ export const KIDS_TRACKSUIT_SIZE_CHART: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: KIDS_TRACKSUIT_SIZE_CHART_DATA,
 };

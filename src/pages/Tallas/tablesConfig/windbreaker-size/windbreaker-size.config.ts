@@ -1,18 +1,18 @@
-import { ITableProperties } from "../../../interfaz/ITableProperties";
+import { ITableProperties } from "../../../../interfaz/ITableProperties";
 
-export const FAN_VERSION_MEN_SIZE: ITableProperties = {
-  cabeceraTabla: "Fan Version Men Size",
+export const WINDBREAKER_SIZE: ITableProperties = {
+  cabeceraTabla: "Windbreaker Size",
   columnas: [
     {
       header: "Size",
       className: "",
     },
     {
-      header: "Comprimiento",
+      header: "Length",
       className: "",
     },
     {
-      header: "Width",
+      header: "Bust",
       className: "",
     },
     {
@@ -22,7 +22,7 @@ export const FAN_VERSION_MEN_SIZE: ITableProperties = {
     {
       header: "Weight",
       className: "",
-    }
+    },
   ],
   servicioDatos: undefined,
 };
