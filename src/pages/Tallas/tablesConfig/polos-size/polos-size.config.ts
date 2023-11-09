@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { POLOS_SIZE_DATA } from "../tables.data";
 
 export const POLOS_SIZE: ITableProperties = {
   cabeceraTabla: "Polos Size",
@@ -24,5 +25,5 @@ export const POLOS_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: POLOS_SIZE_DATA,
 };

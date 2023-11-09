@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { LONG_SLEEVE_TRAINING_SUIT_SIZE_CHART_DATA } from "../tables.data";
 
 export const LONG_SLEEVE_TRAINING_SUIT_SIZE_CHART: ITableProperties = {
   cabeceraTabla: "Long Sleeve Training Suit Size Chart",
@@ -24,5 +25,5 @@ export const LONG_SLEEVE_TRAINING_SUIT_SIZE_CHART: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: LONG_SLEEVE_TRAINING_SUIT_SIZE_CHART_DATA,
 };

@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { NBA_SILK_SIZE_DATA } from "../tables.data";
 
 export const NBA_SILK_SIZE: ITableProperties = {
   cabeceraTabla: "NBA Silk Size",
@@ -24,5 +25,5 @@ export const NBA_SILK_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: NBA_SILK_SIZE_DATA,
 };

@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { KIDS_SIZE_DATA } from "../tables.data";
 
 export const KIDS_SIZE: ITableProperties = {
   cabeceraTabla: "Kids",
@@ -28,5 +29,5 @@ export const KIDS_SIZE: ITableProperties = {
       className: "",
     }
   ],
-  servicioDatos: undefined,
+  servicioDatos: KIDS_SIZE_DATA,
 };

@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { PANTS_SIZE_DATA } from "../tables.data";
 
 export const PANTS_SIZE: ITableProperties = {
   cabeceraTabla: "Pants Size",
@@ -28,5 +29,5 @@ export const PANTS_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: PANTS_SIZE_DATA,
 };

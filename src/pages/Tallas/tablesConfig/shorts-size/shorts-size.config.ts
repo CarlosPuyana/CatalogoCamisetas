@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { SHORTS_SIZE_DATA } from "../tables.data";
 
 export const SHORTS_SIZE: ITableProperties = {
   cabeceraTabla: "Shorts Size",
@@ -28,5 +29,5 @@ export const SHORTS_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: SHORTS_SIZE_DATA,
 };

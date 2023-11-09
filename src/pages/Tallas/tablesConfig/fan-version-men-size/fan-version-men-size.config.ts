@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { FAN_VERSION_MEN_SIZE_DATA } from "../tables.data";
 
 export const FAN_VERSION_MEN_SIZE: ITableProperties = {
   cabeceraTabla: "Fan Version Men Size",
@@ -24,5 +25,5 @@ export const FAN_VERSION_MEN_SIZE: ITableProperties = {
       className: "",
     }
   ],
-  servicioDatos: undefined,
+  servicioDatos: FAN_VERSION_MEN_SIZE_DATA,
 };

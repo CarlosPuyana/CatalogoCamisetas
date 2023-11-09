@@ -10,18 +10,20 @@ const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {
         <thead>
           <tr>
             {tabla.columnas.map((colsTabla) => (
-              <th>{colsTabla.header}</th>
+              <th key={colsTabla.header}>{colsTabla.header}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {tabla.servicioDatos.filas.map((fila: string[] | number[]) => {
-            <tr>
-              {fila.map((valor: string | number) => (
-                <td>{valor}</td>
-              ))}
-            </tr>;
-          })}
+          {tabla.servicioDatos.filas.map(
+            (fila: (string | number)[], filaIndex: number) => (
+              <tr key={filaIndex}>
+                {fila.map((valor: string | number, columnaIndex: number) => (
+                  <td key={columnaIndex}>{valor}</td>
+                ))}
+              </tr>
+            )
+          )}
         </tbody>
       </Table>
     </Container>

@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { WOMEN_SIZE_DATA } from "../tables.data";
 
 export const WOMEN_SIZE: ITableProperties = {
   cabeceraTabla: "Women",
@@ -20,5 +21,5 @@ export const WOMEN_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: WOMEN_SIZE_DATA,
 };

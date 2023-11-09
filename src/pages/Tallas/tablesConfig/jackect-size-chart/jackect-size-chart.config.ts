@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { JACKECT_SIZE_CHART_DATA } from "../tables.data";
 
 export const JACKECT_SIZE_CHART: ITableProperties = {
   cabeceraTabla: "Jacket size chart",
@@ -28,5 +29,5 @@ export const JACKECT_SIZE_CHART: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: JACKECT_SIZE_CHART_DATA,
 };

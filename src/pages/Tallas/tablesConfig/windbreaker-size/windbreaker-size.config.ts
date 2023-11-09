@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { WINDBREAKER_SIZE_DATA } from "../tables.data";
 
 export const WINDBREAKER_SIZE: ITableProperties = {
   cabeceraTabla: "Windbreaker Size",
@@ -24,5 +25,5 @@ export const WINDBREAKER_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: WINDBREAKER_SIZE_DATA,
 };

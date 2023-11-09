@@ -1,4 +1,5 @@
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import { TRAINING_JERSEY_SIZE_DATA } from "../tables.data";
 
 export const TRAINING_JERSEY_SIZE: ITableProperties = {
   cabeceraTabla: "Training Jersey Size",
@@ -24,5 +25,5 @@ export const TRAINING_JERSEY_SIZE: ITableProperties = {
       className: "",
     },
   ],
-  servicioDatos: undefined,
+  servicioDatos: TRAINING_JERSEY_SIZE_DATA,
 };
