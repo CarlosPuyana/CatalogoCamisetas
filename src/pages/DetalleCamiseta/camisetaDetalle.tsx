@@ -1,18 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../../interfaz/ICamiseta";
 import "../../assets/css/camisetaDetalle.css";
 import { ToastModular } from "../../components/ui/Toasts";
 import { OptimizeImage } from "../../components/ui/OptimizeImage";
-import { ModalCarruselImagenes } from "../../components/ui/Modals";
+import {
+  ModalCarruselImagenes,
+  ModalUniversal,
+} from "../../components/ui/Modals";
+import TableGroup from "../../components/ui/tables/TableGroup";
+import { WOMEN_SIZE } from "../Tallas/tablesConfig/women-size/women-size.config";
+import { PLAYER_VERSION_MEN_SIZE } from "../Tallas/tablesConfig/player-version-men-size/player-version-men-size.config";
+import { KIDS_SIZE } from "../Tallas/tablesConfig/kids-size/kids-size.config";
+import { FAN_VERSION_MEN_SIZE } from "../Tallas/tablesConfig/fan-version-men-size/fan-version-men-size.config";
 
+// HACER FILTRADO DINAMICO DE ESTAS TABLAS DEPENDIENDO DE LA PRENDA (NINNIO MUJER FAN PLAYER...)
+const tablasTallas = [
+  WOMEN_SIZE,
+  PLAYER_VERSION_MEN_SIZE,
+  KIDS_SIZE,
+  FAN_VERSION_MEN_SIZE,
+];
 
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const camiseta = camisetas.find((c) => c.id === Number(id));
-  const [showModal, setShowModal] = useState(false);
+  const [showModalImagenes, setShowModalImagenes] = useState(false);
+  const [showModalTallas, setShowModalTallas] = useState(false);
 
   useEffect(() => {}, []);
 
@@ -28,14 +44,6 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
 
   camiseta.imagen.replace("\n", "");
   const imagenesSeparadas = camiseta.imagen.split(" | ");
-
-  const abrirModal = () => {
-    setShowModal(true);
-  };
-
-  const cerrarModal = () => {
-    setShowModal(false);
-  };
 
   return (
     <div className="d-flex">
@@ -56,14 +64,13 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
                     {camiseta.nombre.toLocaleUpperCase()}
                   </h5>
                   <div className="tallas-selector">
-                    <button className="btn-talla">S</button>
-                    <button className="btn-talla">M</button>
-                    <button className="btn-talla">L</button>
-                    <button className="btn-talla">XL</button>
-                    <button className="btn-talla">XXL</button>
-                  </div>
-                  <div className="version-type">
-                    {/** SELECTOR DE TIPO DE VERSIÓN DE LA CAMISETA */}
+                    <button
+                      className="btn-talla"
+                      id="guiaTallas"
+                      onClick={() => setShowModalTallas(true)}
+                    >
+                      GUÍA DE TALLAS DE LA PRENDA
+                    </button>
                   </div>
                 </div>
               </div>
@@ -75,7 +82,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
               <OptimizeImage
                 src={imagen}
                 alt={`Imagen ${index}`}
-                onClick={abrirModal}
+                onClick={() => setShowModalImagenes(true)}
                 clasNameImg="camiseta-image"
               />
             ))}
@@ -85,9 +92,15 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
           </button>
           <ModalCarruselImagenes
             imagenes={imagenesSeparadas}
-            show={showModal}
-            onHide={cerrarModal}
+            show={showModalImagenes}
+            onHide={() => setShowModalImagenes(false)}
           />
+          <ModalUniversal
+            show={showModalTallas}
+            onHide={() => setShowModalTallas(false)}
+          >
+            <TableGroup arrayTablas={tablasTallas} />
+          </ModalUniversal>
         </Container>
       </div>
     </div>

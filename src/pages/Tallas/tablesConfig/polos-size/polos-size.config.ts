@@ -9,6 +9,10 @@ export const POLOS_SIZE: ITableProperties = {
       className: "",
     },
     {
+      header: "Length",
+      className: "",
+    },
+    {
       header: "Chest",
       className: "",
     },

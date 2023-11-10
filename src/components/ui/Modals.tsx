@@ -3,7 +3,15 @@ import { Button, Carousel, Col, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { OptimizeImage } from "./OptimizeImage";
 
-export const ModalCarruselImagenes= ({ imagenes, show, onHide }: any) => {
+export const ModalUniversal = ({ children, show, onHide }: any) => {
+  return (
+    <Modal show={show} onHide={onHide} size="lg" data-bs-theme="dark">
+        {children}
+    </Modal>
+  );
+};
+
+export const ModalCarruselImagenes = ({ imagenes, show, onHide }: any) => {
   return (
     <Modal show={show} onHide={onHide} size="lg" data-bs-theme="dark">
       <Carousel>

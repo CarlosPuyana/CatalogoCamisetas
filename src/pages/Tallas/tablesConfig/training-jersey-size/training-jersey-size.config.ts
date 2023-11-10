@@ -9,6 +9,10 @@ export const TRAINING_JERSEY_SIZE: ITableProperties = {
       className: "",
     },
     {
+      header: "Length",
+      className: "",
+    },
+    {
       header: "Chest",
       className: "",
     },

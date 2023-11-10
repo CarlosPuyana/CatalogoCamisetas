@@ -21,7 +21,11 @@ export const NBA_SILK_SIZE: ITableProperties = {
       className: "",
     },
     {
-      header: "Recommended height and weight",
+      header: "Height",
+      className: "",
+    },
+    {
+      header: "Weight",
       className: "",
     },
   ],
