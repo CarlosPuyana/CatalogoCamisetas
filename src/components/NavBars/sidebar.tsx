@@ -74,14 +74,17 @@ const Sidebar: React.FC<SidebarProps> = ({
               return (
                 <Accordion.Item key={liga.categoria} eventKey={index + ""}>
                   {categoriasNoTeams}
-                  {equiposLiga.map((equipo) => (
-                    <Accordion.Body
-                      key={equipo.team}
-                      onClick={() => onEquipoSelected(equipo.team)}
-                    >
-                      {equipo.team}
-                    </Accordion.Body>
-                  ))}
+                  <Accordion.Body className="accordeon-body">
+                    {equiposLiga.map((equipo) => (
+                      <div
+                        key={equipo.team}
+                        onClick={() => onEquipoSelected(equipo.team)}
+                        className="accordeon-item-team-button"
+                      >
+                        {equipo.team}
+                      </div>
+                    ))}
+                  </Accordion.Body>
                 </Accordion.Item>
               );
             })}

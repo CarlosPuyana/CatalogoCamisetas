@@ -20,11 +20,29 @@
 }
 
 .accordeon .accordion-collapse {
-  background-color: white; 
+  background-color: white;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 1px;
 }
+
+.accordeon-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.accordeon-item-team-button {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    border-top: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordeon-item-team-button:hover {
+    background-color: #f0f0f0;
+  }
 
 .sidebar-completo {
   padding-right: 100px;
@@ -61,8 +79,7 @@
 
 /* Estilo de la barra lateral abierta en pantallas pequeñas */
 @media (max-width: 1200px) {
-
-  .hamburger-button.active+.accordeon {
+  .hamburger-button.active + .accordeon {
     visibility: hidden;
     width: 0;
     transition: width 0.3s ease-in-out;
@@ -109,24 +126,24 @@
     display: block !important;
     position: absolute;
     width: 7% !important;
-    top: calc(var(--bs-gutter-x) * .5);;
+    top: calc(var(--bs-gutter-x) * 0.5);
   }
 
   #checkbox {
     display: none;
   }
-  
+
   .toggle {
     position: absolute;
-    top: calc(var(--bs-gutter-x) * .5);;
-    left: calc(var(--bs-gutter-x) * 1.5);;
+    top: calc(var(--bs-gutter-x) * 0.5);
+    left: calc(var(--bs-gutter-x) * 1.5);
     width: 40px !important;
     cursor: pointer;
     margin: auto;
     display: block;
     height: calc(4px * 3 + 11px * 2);
   }
-  
+
   .bar {
     position: absolute;
     left: 0;
@@ -136,45 +153,45 @@
     background: #7b52b9;
     color: inherit;
     opacity: 1;
-    transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
+    transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
   }
-  
+
   /***** Spin Animation *****/
-  
+
   .bar--top {
-    bottom: calc(50% + 11px + 4px/ 2);
-    transition-property: bottom,transform;
-    transition-delay: calc(0s + 0.35s),0s;
+    bottom: calc(50% + 11px + 4px / 2);
+    transition-property: bottom, transform;
+    transition-delay: calc(0s + 0.35s), 0s;
   }
-  
+
   .bar--middle {
-    top: calc(50% - 4px/ 2);
+    top: calc(50% - 4px / 2);
     transition-property: opacity;
     transition-delay: calc(0s + 0.35s);
   }
-  
+
   .bar--bottom {
-    top: calc(50% + 11px + 4px/ 2);
-    transition-property: top,transform;
-    transition-delay: calc(0s + 0.35s),0s;
+    top: calc(50% + 11px + 4px / 2);
+    transition-property: top, transform;
+    transition-delay: calc(0s + 0.35s), 0s;
   }
-  
+
   #checkbox:checked + .toggle .bar--top {
-    bottom: calc(50% - 4px/ 2);
+    bottom: calc(50% - 4px / 2);
     transform: rotate(135deg);
-    transition-delay: 0s,calc(0s + 0.35s);
+    transition-delay: 0s, calc(0s + 0.35s);
   }
-  
+
   #checkbox:checked + .toggle .bar--middle {
     opacity: 0;
     transition-duration: 0s;
     transition-delay: calc(0s + 0.35s);
   }
-  
+
   #checkbox:checked + .toggle .bar--bottom {
-    top: calc(50% - 4px/ 2);
+    top: calc(50% - 4px / 2);
     transform: rotate(225deg);
-    transition-delay: 0s,calc(0s + 0.35s);
+    transition-delay: 0s, calc(0s + 0.35s);
   }
 
   .sidebar-open .hamburger-button {
