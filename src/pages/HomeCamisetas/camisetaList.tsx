@@ -12,8 +12,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
   const [camisetasFiltro, setCamisetasFiltro] =
     useState<ICamiseta[]>(camisetas);
-  const [camisetasTopFiltro, setCamisetasTopFiltro] =
-    useState<ICamiseta[]>();
+  const [camisetasTopFiltro, setCamisetasTopFiltro] = useState<ICamiseta[]>();
   const [currentPage, setCurrentPage] = useState(1);
   const camisetasPerPage = 20;
 
@@ -36,7 +35,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
 
         buscarCamis(query);
       } else {
-        const camisetasTop = await camisetaService.getAllCamisetasTop()
+        const camisetasTop = await camisetaService.getAllCamisetasTop();
         console.log(camisetasTop);
         setCamisetasTopFiltro(camisetasTop);
         console.log(camisetasTopFiltro);
@@ -71,15 +70,21 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
       <Container className="mt-5 mx-5 clasesita" style={{ width: "100%" }}>
         <div className="d-flex flex-wrap align-items-center">
           <hr></hr>
-          {
-          location.pathname === '/' ? 
-          camisetasTopFiltro?.map((e) =>
-            e.destacadaGlobal === true ? <CamisetaCard key={e.id} camiseta={e} top={true} /> : ""
-          )
-          :
-          camisetasFiltro.map((e) =>
-            e.destacada === true ? <CamisetaCard key={e.id} camiseta={e} top={true} /> : ""
-          )}
+          {location.pathname === "/"
+            ? camisetasTopFiltro?.map((e) =>
+                e.destacadaGlobal === true ? (
+                  <CamisetaCard key={e.id} camiseta={e} top={true} />
+                ) : (
+                  ""
+                )
+              )
+            : camisetasFiltro.map((e) =>
+                e.destacada === true ? (
+                  <CamisetaCard key={e.id} camiseta={e} top={true} />
+                ) : (
+                  ""
+                )
+              )}
         </div>
         <hr style={{ width: "85%" }}></hr>
         <div className="d-flex flex-wrap align-items-center">
@@ -103,9 +108,10 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   );
 };
 
-
-
-const CamisetaCard: React.FC<{ camiseta: ICamiseta, top: boolean }> = ({ camiseta, top }) => {
+const CamisetaCard: React.FC<{ camiseta: ICamiseta; top: boolean }> = ({
+  camiseta,
+  top,
+}) => {
   return (
     <div
       key={camiseta.id}
@@ -126,9 +132,9 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta, top: boolean }> = ({ camiset
                 className="card-text mb-0 cardi-title"
                 style={{ fontSize: "0.8rem" }}
               >
-                {
-                top === true ? "🔥" + truncateString(camiseta.nombre, 30) + "🔥" : truncateString(camiseta.nombre, 30)
-                }
+                {top === true
+                  ? "🔥" + truncateString(camiseta.nombre, 30) + "🔥"
+                  : truncateString(camiseta.nombre, 30)}
               </p>
             </TooltipCursorFollow>
           </div>
@@ -137,7 +143,7 @@ const CamisetaCard: React.FC<{ camiseta: ICamiseta, top: boolean }> = ({ camiset
               <span>€</span> 25
             </div>
             <Link to={`/busqueda/${camiseta.equipo}`}>
-               <button className="cardi-btn">{camiseta.equipo}</button>
+              <button className="cardi-btn">{camiseta.equipo}</button>
             </Link>
           </div>
         </div>

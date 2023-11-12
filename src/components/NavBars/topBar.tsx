@@ -7,7 +7,7 @@ import {
   FaRuler,
   FaDollarSign,
   FaQuestion,
-  FaSearch
+  FaSearch,
 } from "react-icons/fa";
 import "../../assets/css/topbar.css";
 
@@ -21,8 +21,7 @@ const TopBar: React.FC<TopBarProps> = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchText === "") navigate("/");
-    else navigate(`/busqueda/${searchText}`);
+    searchText === "" ? navigate("/") : navigate(`/busqueda/${searchText}`);
   };
 
   return (
