@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "../../assets/css/camisetasList.css";
 import camisetaService from "../../context/services/camisetaService";
 import { ICamiseta } from "../../interfaz/ICamiseta";
-import { OptimizeImage } from "../../components/ui/OptimizeImage";
-import { TooltipCursorFollow } from "../../components/ui/tooltipHook";
-import { truncateString } from "../../utils/utilsStrings";
+import CamisetaCard from "./CamisetaCard";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
+  const location = useLocation();
   const [camisetasFiltro, setCamisetasFiltro] =
     useState<ICamiseta[]>(camisetas);
   const [camisetasTopFiltro, setCamisetasTopFiltro] = useState<ICamiseta[]>();
@@ -52,10 +51,6 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     length: Math.ceil(camisetasFiltro.length / camisetasPerPage),
   });
 
-  const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-
   const indexOfLastCamiseta = currentPage * camisetasPerPage;
   const indexOfFirstCamiseta = indexOfLastCamiseta - camisetasPerPage;
   const currentCamisetas = camisetasFiltro.slice(
@@ -63,13 +58,11 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     indexOfLastCamiseta
   );
 
-  const location = useLocation();
-
   return (
     <div className="d-flex flex-column align-items-end`">
       <Container className="mt-5 mx-5 clasesita" style={{ width: "100%" }}>
         <div className="d-flex flex-wrap align-items-center">
-          <hr></hr>
+          <hr />
           {location.pathname === "/"
             ? camisetasTopFiltro?.map((e) =>
                 e.destacadaGlobal === true ? (
@@ -86,7 +79,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
                 )
               )}
         </div>
-        <hr style={{ width: "85%" }}></hr>
+        <hr style={{ width: "85%" }} />
         <div className="d-flex flex-wrap align-items-center">
           {currentCamisetas.map((camiseta) => (
             <CamisetaCard key={camiseta.id} camiseta={camiseta} top={false} />
@@ -97,57 +90,13 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
             <Pagination.Item
               key={number + 1}
               active={number + 1 === currentPage}
-              onClick={() => paginate(number + 1)}
+              onClick={() => setCurrentPage(number + 1)}
             >
               {number + 1}
             </Pagination.Item>
           ))}
         </Pagination>
       </Container>
-    </div>
-  );
-};
-
-const CamisetaCard: React.FC<{ camiseta: ICamiseta; top: boolean }> = ({
-  camiseta,
-  top,
-}) => {
-  return (
-    <div
-      key={camiseta.id}
-      className="mb-4 align-items-center"
-      style={{ flexBasis: "14%", marginLeft: "10px", marginRight: "10px" }}
-    >
-      <Link style={{ textDecoration: "none" }} to={`/camiseta/${camiseta.id}`}>
-        <div className="cardi p-2 d-flex flex-column">
-          <OptimizeImage
-            src={camiseta.imagen}
-            alt={camiseta.nombre}
-            clasNameImg="cardi-img"
-            classNameContainer="cardi-img-container"
-          />
-          <div className="card-body mt-auto">
-            <TooltipCursorFollow text={camiseta.nombre}>
-              <p
-                className="card-text mb-0 cardi-title"
-                style={{ fontSize: "0.8rem" }}
-              >
-                {top === true
-                  ? "🔥" + truncateString(camiseta.nombre, 30) + "🔥"
-                  : truncateString(camiseta.nombre, 30)}
-              </p>
-            </TooltipCursorFollow>
-          </div>
-          <div className="cardi-footer">
-            <div className="cardi-price">
-              <span>€</span> 25
-            </div>
-            <Link to={`/busqueda/${camiseta.equipo}`}>
-              <button className="cardi-btn">{camiseta.equipo}</button>
-            </Link>
-          </div>
-        </div>
-      </Link>
     </div>
   );
 };

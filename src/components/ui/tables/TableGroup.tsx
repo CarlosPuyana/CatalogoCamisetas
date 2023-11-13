@@ -1,26 +1,22 @@
 import React, { useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "../../../assets/css/tableGroup.css";
 import TableGenerator from "./TableGenerator";
+import { ButtonAppTheme } from "../Buttons";
 
 const TableGroup: React.FC<{ arrayTablas: any }> = ({ arrayTablas }) => {
   const [tablaSeleccionada, setTablaSeleccionada] = useState(arrayTablas[0]);
 
-  const handleClickTabla = (tabla: any) => {
-    setTablaSeleccionada(tabla);
-  };
-
   return (
     <Container>
       <div className="tableSelectorContainer">
-        {arrayTablas.map((tabla: any, index: any) => (
-          <Button
+        {arrayTablas.map((tabla: any, index: number) => (
+          <ButtonAppTheme
             key={index}
-            className="button"
-            onClick={() => handleClickTabla(tabla)}
+            onClick={() => setTablaSeleccionada(tabla)}
           >
             {tabla.cabeceraTabla}
-          </Button>
+          </ButtonAppTheme>
         ))}
       </div>
       <div className="tableContainer">

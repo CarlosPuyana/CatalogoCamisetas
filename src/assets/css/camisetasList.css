@@ -66,26 +66,6 @@
   color: var(--font-color-sub);
 }
 
-.cardi-btn {
-  border-color: black;
-  border-radius: 10px;
-  color: black;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 5px 10px 5px 10px;
-  font-size: 13px;
-  background-image: linear-gradient(45deg, white 50%, #28a745 50%);
-  background-position: 20%;
-  background-size: 400%;
-  -webkit-transition: background 500ms ease-in-out, color 500ms ease-in-out;
-  transition: background 500ms ease-in-out, color 500ms ease-in-out;
-}
-
-.cardi-btn:hover {
-  color: #ffffff;
-  background-position: 90%;
-}
-
 .cardi-img:hover {
   transform: translateY(-3px);
 }

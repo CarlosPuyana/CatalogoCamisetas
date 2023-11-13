@@ -13,17 +13,3 @@
   display: flex;
   justify-content: center; /* Alineación horizontal */
 }
-
-.button {
-  background-color: #28a745;
-  border: none;
-  color: white; /* Color de texto azul */
-  cursor: pointer;
-  font-size: 16px;
-  padding: 5px 10px; /* Espaciado interior */
-  border-radius: 5px; /* Bordes redondeados */
-}
-
-.button:hover {
-  background-color: #218838; /* Color de fondo azul al pasar el mouse */
-}

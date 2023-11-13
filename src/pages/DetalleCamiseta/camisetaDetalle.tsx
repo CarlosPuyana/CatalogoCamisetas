@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../../interfaz/ICamiseta";
@@ -26,9 +26,9 @@ const tablasTallas = [
 const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const camiseta = camisetas.find((c) => c.id === Number(id));
   const [showModalImagenes, setShowModalImagenes] = useState(false);
   const [showModalTallas, setShowModalTallas] = useState(false);
+  const camiseta = camisetas.find((c) => c.id === Number(id));
 
   useEffect(() => {}, []);
 
@@ -80,6 +80,7 @@ const CamisetaDetalle: React.FC<ICamisetaDetalleProps> = ({ camisetas }) => {
           <div className="additional-photos">
             {imagenesSeparadas.map((imagen, index) => (
               <OptimizeImage
+                key={index}
                 src={imagen}
                 alt={`Imagen ${index}`}
                 onClick={() => setShowModalImagenes(true)}
