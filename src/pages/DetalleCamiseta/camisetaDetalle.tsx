@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { ICamisetaDetalleProps } from "../../interfaz/ICamiseta";
-import "../../assets/css/camisetaDetalle.css";
-import { ToastModular } from "../../components/ui/Toasts";
-import { OptimizeImage } from "../../components/ui/OptimizeImage";
-import {
-  ModalCarruselImagenes,
-  ModalUniversal,
-} from "../../components/ui/Modals";
-import TableGroup from "../../components/ui/tables/TableGroup";
+import "./camisetaDetalle.css";
+import { ToastModular } from "../../components/ui/Toasts/Toasts";
+import { OptimizeImage } from "../../components/ui/Images/OptimizeImage";
+import TableGroup from "../../components/ui/TablesComponents/TablesGroup/TableGroup";
 import { WOMEN_SIZE } from "../Tallas/tablesConfig/women-size/women-size.config";
 import { PLAYER_VERSION_MEN_SIZE } from "../Tallas/tablesConfig/player-version-men-size/player-version-men-size.config";
 import { KIDS_SIZE } from "../Tallas/tablesConfig/kids-size/kids-size.config";
 import { FAN_VERSION_MEN_SIZE } from "../Tallas/tablesConfig/fan-version-men-size/fan-version-men-size.config";
+import { ModalCarruselImagenes } from "../../components/ui/Modals/ModalCarruselImagenes/ModalCarruselImagenes";
+import { ModalUniversal } from "../../components/ui/Modals/ModalUniversal/ModalUniversal";
 
 // HACER FILTRADO DINAMICO DE ESTAS TABLAS DEPENDIENDO DE LA PRENDA (NINNIO MUJER FAN PLAYER...)
 const tablasTallas = [

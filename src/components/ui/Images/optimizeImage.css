@@ -2,7 +2,7 @@
   object-position: center;
   background-size: 100%;
   background-position: center;
-  background-image: url("../../assets/imgs/placeholder_shirt.png");
+  background-image: url("../../../assets/imgs/placeholder_shirt.png");
 }
 
 .optimize-img-container.loaded {
@@ -16,7 +16,4 @@
 .optimize-img-container > .optimize-img {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
-}
-
-.optimize-img {
 }

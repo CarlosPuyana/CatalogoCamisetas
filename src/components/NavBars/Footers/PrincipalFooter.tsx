@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../assets/css/footer.css";
 import { Col, ListGroup, Row } from "react-bootstrap";
 
-const Footer: React.FC = () => {
+const DefaultFooter: React.FC = () => {
   const [isAtBottom, setIsAtBottom] = useState(false);
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default DefaultFooter;

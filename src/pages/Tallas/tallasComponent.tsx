@@ -1,5 +1,5 @@
 import React from "react";
-import TableGroup from "../../components/ui/tables/TableGroup";
+import TableGroup from "../../components/ui/TablesComponents/TablesGroup/TableGroup";
 import { ADIDAS_SHORTS_TABLE } from "./tablesConfig/adidas-shorts-table/adidas-shorts-table.config";
 import { KIDS_TRACKSUIT_SIZE_CHART } from "./tablesConfig/kids-tracksuit-size-chart/kids-tracksuit-size-chart.config";
 import { JACKECT_SIZE_CHART } from "./tablesConfig/jackect-size-chart/jackect-size-chart.config";

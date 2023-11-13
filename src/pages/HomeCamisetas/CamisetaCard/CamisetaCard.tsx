@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { OptimizeImage } from "../../components/ui/OptimizeImage";
-import { TooltipCursorFollow } from "../../components/ui/tooltipHook";
-import { truncateString } from "../../utils/utilsStrings";
-import { ICamiseta } from "../../interfaz/ICamiseta";
-import { ButtonAppTheme } from "../../components/ui/Buttons";
+import { OptimizeImage } from "../../../components/ui/Images/OptimizeImage";
+import { truncateString } from "../../../utils/utilsStrings";
+import { ICamiseta } from "../../../interfaz/ICamiseta";
+import { ButtonAppTheme } from "../../../components/ui/Buttons/Buttons";
+import { TooltipCursorFollow } from "../../../components/ui/Tooltips/TooltipCursorFollow/TooltipCursorFollow";
 
 const CamisetaCard: React.FC<{ camiseta: ICamiseta; top: boolean }> = ({
   camiseta,

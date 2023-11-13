@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import "../../../assets/css/tableGroup.css";
-import TableGenerator from "./TableGenerator";
-import { ButtonAppTheme } from "../Buttons";
+import "../../../ui/TablesComponents/TableGenerator/TableGenerator";
+import "./tableGroup.css"
+import TableGenerator from "../TableGenerator/TableGenerator";
+import { ButtonAppTheme } from "../../Buttons/Buttons";
 
 const TableGroup: React.FC<{ arrayTablas: any }> = ({ arrayTablas }) => {
   const [tablaSeleccionada, setTablaSeleccionada] = useState(arrayTablas[0]);

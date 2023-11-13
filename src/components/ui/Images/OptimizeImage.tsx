@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../../assets/css/imageOptimize.css";
+import "../../ui/Images/optimizeImage.css";
 
 export const OptimizeImage = ({
   src,

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "../../assets/css/pageGeneral.css";
+import "../../assets/global-css/pageGeneral.css";
 import ContactoComponent from "../Contacto/contactoComponent";
 import TallasComponent from "../Tallas/tallasComponent";
 import PreciosComponent from "../Precios/preciosComponent";

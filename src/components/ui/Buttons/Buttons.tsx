@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/css/button.css";
+import "./buttons.css";
 
 export const ButtonAppTheme = ({ children, onClick }: any) => {
   return (

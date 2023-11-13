@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../context/supabase/supabase';
+import { auth } from '../../utils/apis/supabase/supabase';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();

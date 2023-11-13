@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
 import { useLocation, useParams } from "react-router-dom";
-import "../../assets/css/camisetasList.css";
-import camisetaService from "../../context/services/camisetaService";
-import { ICamiseta } from "../../interfaz/ICamiseta";
-import CamisetaCard from "./CamisetaCard";
+import "./camisetasList.css";
+import camisetaService from "../../../utils/apis/camisetaService";
+import { ICamiseta } from "../../../interfaz/ICamiseta";
+import CamisetaCard from "../CamisetaCard/CamisetaCard";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();

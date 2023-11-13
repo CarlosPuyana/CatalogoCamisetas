@@ -9,13 +9,13 @@ import {
   FaQuestion,
   FaSearch,
 } from "react-icons/fa";
-import "../../assets/css/topbar.css";
+import "../../NavBars/Topbars/topbar.css";
 
 interface TopBarProps {
   // Define props
 }
 
-const TopBar: React.FC<TopBarProps> = () => {
+const PrincipalTopbar: React.FC<TopBarProps> = () => {
   const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
 
@@ -66,4 +66,4 @@ const TopBar: React.FC<TopBarProps> = () => {
   );
 };
 
-export default TopBar;
+export default PrincipalTopbar;

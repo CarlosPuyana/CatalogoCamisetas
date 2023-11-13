@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import CamisetaList from "./pages/HomeCamisetas/camisetaList.tsx";
+import CamisetaList from "./pages/HomeCamisetas/CamisetasList/CamisetaList";
 import RegisterForm from "./pages/Registro/registerForm.tsx";
 import LoginForm from "./pages/Login/loginForm.tsx";
 import CamisetaForm from "./pages/FormCamisetas/camisetaForm.tsx";
-import CamisetaDetalle from "./pages/DetalleCamiseta/camisetaDetalle.tsx";
-import camisetaService from "./context/services/camisetaService.ts";
-import Sidebar from "./components/NavBars/sidebar.tsx";
-import TopBar from "./components/NavBars/topBar.tsx";
+import CamisetaDetalle from "./pages/DetalleCamiseta/CamisetaDetalle"
+import camisetaService from "./utils/apis/camisetaService";
+import PrincipalSidebar from "./components/NavBars/Sidebars/PrincipalSidebar";
+import PrincipalTopbar from "./components/NavBars/Topbars/PrincipalTopbar";
 import PageComponent from "./pages/GeneralPage/pageComponent.tsx";
 //import Footer from "./components/NavBars/footer.tsx";
 import { Row, Col, Container } from "react-bootstrap";
@@ -55,7 +55,7 @@ function App() {
     <div>
       <Container>
         <Row>
-          <TopBar />
+          <PrincipalTopbar />
           <input type="checkbox" id="checkbox" onClick={toggleSidebar} />
           <label htmlFor="checkbox" className="toggle ">
             <div className="bar bar--top"></div>
@@ -68,7 +68,7 @@ function App() {
         </Row>
         <Row>
           <Col className={`${sidebarOpen ? 'mostrando' : 'esconder'}`} md={2}>
-            <Sidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
+            <PrincipalSidebar teams={teams} categorias={categorias} onEquipoSelected={handleEquipoSelected} open={sidebarOpen} />
           </Col>
           <Col className={`${sidebarOpen ? 'mostrar-mitad' : 'mostrar-entero'} d-md-flex justify-content-center`} md={10}>
             <Routes>

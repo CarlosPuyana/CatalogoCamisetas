@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import generalService from "../../context/services/generalService";
+import generalService from "../../utils/apis/generalService";
 import { Accordion } from "react-bootstrap";
 import { IPreguntasFrecuentes } from "../../interfaz/IPreguntasFrecuentes";
 

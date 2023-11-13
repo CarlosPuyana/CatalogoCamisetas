@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Toast } from "react-bootstrap";
-import "../../assets/css/toast.css";
+import "../../ui/Toasts/toast.css";
 export const ToastModular = ({
   toastMsg,
   toastHeader,

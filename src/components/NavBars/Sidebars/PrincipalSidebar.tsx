@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Accordion } from "react-bootstrap";
-import "../../assets/css/sidebar.css";
-import { ITeam } from "../../interfaz/ITeams";
-import { ICategoria } from "../../interfaz/ICategorias";
+import "../../NavBars/Sidebars/sidebar.css";
+import { ITeam } from "../../../interfaz/ITeams";
+import { ICategoria } from "../../../interfaz/ICategorias";
 
 interface SidebarProps {
   teams: ITeam[];
@@ -11,7 +11,7 @@ interface SidebarProps {
   open: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
+const PrincipalSidebar: React.FC<SidebarProps> = ({
   teams,
   categorias,
   onEquipoSelected,
@@ -95,4 +95,4 @@ const Sidebar: React.FC<SidebarProps> = ({
   );
 };
 
-export default Sidebar;
+export default PrincipalSidebar;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import supabase, { auth } from '../../context/supabase/supabase';
+import supabase, { auth } from '../../utils/apis/supabase/supabase';
 
 const RegisterForm: React.FC = () => {
   const [email, setEmail] = useState('');
