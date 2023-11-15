@@ -6,19 +6,18 @@ export const WOMEN_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Comprimiento",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Width",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
   ],
   servicioDatos: WOMEN_SIZE_DATA,

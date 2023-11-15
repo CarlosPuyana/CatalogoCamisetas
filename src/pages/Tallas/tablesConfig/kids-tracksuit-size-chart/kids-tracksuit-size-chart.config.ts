@@ -6,23 +6,23 @@ export const KIDS_TRACKSUIT_SIZE_CHART: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "1/2 Chest",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Pants Length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Fit Height",
-      className: "",
+      colSubText: "cm",
     },
   ],
   servicioDatos: KIDS_TRACKSUIT_SIZE_CHART_DATA,

@@ -6,27 +6,26 @@ export const NBA_SILK_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Bust",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Shoulders",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: NBA_SILK_SIZE_DATA,

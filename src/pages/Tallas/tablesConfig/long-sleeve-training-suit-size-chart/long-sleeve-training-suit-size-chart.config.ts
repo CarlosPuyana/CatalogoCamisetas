@@ -6,23 +6,22 @@ export const LONG_SLEEVE_TRAINING_SUIT_SIZE_CHART: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Bust",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: LONG_SLEEVE_TRAINING_SUIT_SIZE_CHART_DATA,

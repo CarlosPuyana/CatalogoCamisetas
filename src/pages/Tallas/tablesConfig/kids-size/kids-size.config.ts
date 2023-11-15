@@ -6,27 +6,25 @@ export const KIDS_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Age",
-      className: "",
     },
     {
       header: "Comprimiento",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Width",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Waist",
-      className: "",
+      colSubText: "cm",
     }
   ],
   servicioDatos: KIDS_SIZE_DATA,

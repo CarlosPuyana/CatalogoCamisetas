@@ -6,27 +6,26 @@ export const JACKECT_SIZE_CHART: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Dress length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Bust",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Pants lenth",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: JACKECT_SIZE_CHART_DATA,

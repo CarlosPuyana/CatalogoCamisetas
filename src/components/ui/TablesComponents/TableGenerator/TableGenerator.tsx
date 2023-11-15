@@ -1,16 +1,24 @@
 import React from "react";
+import "./tableGenerator.css";
 import { ITableProperties } from "../../../../interfaz/ITableProperties";
-import { Container, Table } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {
   return (
-    <Container>
-      <h3>{tabla.cabeceraTabla}</h3>
-      <Table>
+    <Container className="centrao">
+      <h3 className="hader-table">{tabla.cabeceraTabla}</h3>
+      <table>
         <thead>
           <tr>
             {tabla.columnas.map((colsTabla) => (
-              <th key={colsTabla.header}>{colsTabla.header}</th>
+              <th key={colsTabla.header} className="th-with-subtext">
+                {colsTabla.header}
+                {colsTabla.colSubText && (
+                  <div className="sub-text-circle">
+                    <div className="sub-text">{colsTabla.colSubText}</div>
+                  </div>
+                )}
+              </th>
             ))}
           </tr>
         </thead>
@@ -25,7 +33,7 @@ const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {
             )
           )}
         </tbody>
-      </Table>
+      </table>
     </Container>
   );
 };

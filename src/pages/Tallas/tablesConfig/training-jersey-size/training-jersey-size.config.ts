@@ -6,27 +6,26 @@ export const TRAINING_JERSEY_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Chest",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Sleeve",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: TRAINING_JERSEY_SIZE_DATA,

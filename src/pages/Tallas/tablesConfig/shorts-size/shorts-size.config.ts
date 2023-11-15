@@ -6,27 +6,26 @@ export const SHORTS_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Hip",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Waist",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Lenght",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: SHORTS_SIZE_DATA,

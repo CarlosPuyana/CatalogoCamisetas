@@ -1,5 +1,6 @@
 export interface ITableColumn {
   header: string;
+  colSubText?: string
   className?: string;
 }
 

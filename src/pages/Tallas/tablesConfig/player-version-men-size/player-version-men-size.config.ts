@@ -6,23 +6,22 @@ export const PLAYER_VERSION_MEN_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Comprimiento",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Width",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: PLAYER_VERSION_MEN_SIZE_DATA,

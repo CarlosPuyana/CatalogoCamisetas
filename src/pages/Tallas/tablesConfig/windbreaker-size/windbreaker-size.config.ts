@@ -6,23 +6,22 @@ export const WINDBREAKER_SIZE: ITableProperties = {
   columnas: [
     {
       header: "Size",
-      className: "",
     },
     {
       header: "Length",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Bust",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Height",
-      className: "",
+      colSubText: "cm",
     },
     {
       header: "Weight",
-      className: "",
+      colSubText: "kg",
     },
   ],
   servicioDatos: WINDBREAKER_SIZE_DATA,
