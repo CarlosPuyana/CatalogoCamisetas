@@ -62,9 +62,6 @@ function App() {
             <div className="bar bar--middle"></div>
             <div className="bar bar--bottom"></div>
           </label>
-          {/* <button className="hamburger-button" onClick={toggleSidebar}>
-            ☰
-          </button> */}
         </Row>
         <Row>
           <Col className={`${sidebarOpen ? 'mostrando' : 'esconder'}`} md={2}>

@@ -1,6 +1,9 @@
 import React from "react";
 import "./tableGenerator.css";
-import { ITableProperties } from "../../../../interfaz/ITableProperties";
+import {
+  ITableColumn,
+  ITableProperties,
+} from "../../../../interfaz/ITableProperties";
 import { Container } from "react-bootstrap";
 
 const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {
@@ -10,7 +13,7 @@ const TableGenerator: React.FC<{ tabla: ITableProperties }> = ({ tabla }) => {
       <table>
         <thead>
           <tr>
-            {tabla.columnas.map((colsTabla) => (
+            {tabla.columnas.map((colsTabla: ITableColumn) => (
               <th key={colsTabla.header} className="th-with-subtext">
                 {colsTabla.header}
                 {colsTabla.colSubText && (
