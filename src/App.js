@@ -12,6 +12,7 @@ import PrincipalTopbar from "./components/NavBars/Topbars/PrincipalTopbar";
 import PageComponent from "./pages/GeneralPage/pageComponent.tsx";
 //import Footer from "./components/NavBars/footer.tsx";
 import { Row, Col, Container } from "react-bootstrap";
+import { APP_ROUTES } from "./utils/generalConstants/routes";
 
 function App() {
   const [allCamisetas, setAllCamisetas] = useState([]);
@@ -44,7 +45,7 @@ function App() {
   }, []);
 
   const handleEquipoSelected = (equipo) => {
-    navigate(`/busqueda/${equipo}`);
+    navigate(APP_ROUTES.routeSearch + equipo);
   };
 
   const toggleSidebar = () => {
@@ -70,7 +71,7 @@ function App() {
           <Col className={`${sidebarOpen ? 'mostrar-mitad' : 'mostrar-entero'} d-md-flex justify-content-center`} md={10}>
             <Routes>
               <Route
-                path="/"
+                path={APP_ROUTES.routeHome}
                 element={
                   <CamisetaList
                     camisetas={newCamisetas}
@@ -78,18 +79,18 @@ function App() {
                   />
                 }
               />
-              <Route path="/register" element={<RegisterForm />} />
-              <Route path="/login" element={<LoginForm />} />
-              <Route path="/add" element={<CamisetaForm />} />
+              <Route path={APP_ROUTES.routeRegistro} element={<RegisterForm />} />
+              <Route path={APP_ROUTES.routeLogin} element={<LoginForm />} />
+              <Route path={APP_ROUTES.routeAddShirt} element={<CamisetaForm />} />
               <Route
-                path="/camiseta/:id"
+                path={APP_ROUTES.routeShirtById}
                 element={<CamisetaDetalle camisetas={allCamisetas} />}
               />
               <Route
-                path="/busqueda/:busqueda"
+                path={APP_ROUTES.routeSearchByString}
                 element={<CamisetaList camisetas={allCamisetas} />}
               />
-              <Route path="/page/:opc" element={<PageComponent />} />
+              <Route path={APP_ROUTES.routePageByOpc} element={<PageComponent />} />
               <Route path="*" element={
                 <CamisetaList
                   camisetas={newCamisetas}

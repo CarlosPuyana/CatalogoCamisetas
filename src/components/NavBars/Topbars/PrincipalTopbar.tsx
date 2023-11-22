@@ -10,6 +10,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import "../../NavBars/Topbars/topbar.css";
+import { APP_ROUTES } from "../../../utils/generalConstants/routes";
 
 interface TopBarProps {
   // Define props
@@ -21,7 +22,9 @@ const PrincipalTopbar: React.FC<TopBarProps> = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    searchText === "" ? navigate("/") : navigate(`/busqueda/${searchText}`);
+    searchText === ""
+      ? navigate(APP_ROUTES.routeHome)
+      : navigate(APP_ROUTES.routeSearch + searchText);
   };
 
   return (
@@ -30,19 +33,19 @@ const PrincipalTopbar: React.FC<TopBarProps> = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to={APP_ROUTES.routeHome}>
               <FaTshirt /> Inicio
             </Nav.Link>
-            <Nav.Link as={Link} to="/page/contacto">
+            <Nav.Link as={Link} to={APP_ROUTES.routePageContacto}>
               <FaPhone /> Contacto
             </Nav.Link>
-            <Nav.Link as={Link} to="/page/tallas">
+            <Nav.Link as={Link} to={APP_ROUTES.routePageTallas}>
               <FaRuler /> Tallas
             </Nav.Link>
-            <Nav.Link as={Link} to="/page/precios">
+            <Nav.Link as={Link} to={APP_ROUTES.routePagePrecio}>
               <FaDollarSign /> Precios
             </Nav.Link>
-            <Nav.Link as={Link} to="/page/faqs">
+            <Nav.Link as={Link} to={APP_ROUTES.routePagePrecioFaqs}>
               <FaQuestion /> FAQs
             </Nav.Link>
           </Nav>

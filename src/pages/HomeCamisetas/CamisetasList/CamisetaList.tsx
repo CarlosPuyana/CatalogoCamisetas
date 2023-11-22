@@ -5,6 +5,8 @@ import "./camisetasList.css";
 import camisetaService from "../../../utils/apis/camisetaService";
 import { ICamiseta } from "../../../interfaz/ICamiseta";
 import CamisetaCard from "../CamisetaCard/CamisetaCard";
+import { setNavigatorTabName } from "../../../utils/utilsDocument";
+import { APP_ROUTES } from "../../../utils/generalConstants/routes";
 
 const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
   const { busqueda } = useParams();
@@ -44,6 +46,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     };
 
     fetchData(busqueda);
+    setNavigatorTabName('Camis365');
     // eslint-disable-next-line
   }, [busqueda, camisetas]);
 
@@ -63,7 +66,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
       <Container className="mt-5 mx-5 clasesita" style={{ width: "100%" }}>
         <div className="d-flex flex-wrap align-items-center">
           <hr />
-          {location.pathname === "/"
+          {location.pathname === APP_ROUTES.routeHome
             ? camisetasTopFiltro?.map((e) =>
                 e.destacadaGlobal === true ? (
                   <CamisetaCard key={e.id} camiseta={e} top={true} />

@@ -5,6 +5,7 @@ import ContactoComponent from "../Contacto/contactoComponent";
 import TallasComponent from "../Tallas/tallasComponent";
 import PreciosComponent from "../Precios/preciosComponent";
 import PreguntasFrecuentesComponent from "../PreguntasFrecuentes/preguntasFrecuentes";
+import { setNavigatorTabName } from "../../utils/utilsDocument";
 
 const PageComponent: React.FC = () => {
   const { opc } = useParams();
@@ -13,15 +14,19 @@ const PageComponent: React.FC = () => {
   switch (opc) {
     case "contacto":
       content = <ContactoComponent />;
+      setNavigatorTabName(opc);
       break;
     case "tallas":
       content = <TallasComponent />;
+      setNavigatorTabName(opc);
       break;
     case "precios":
       content = <PreciosComponent />;
+      setNavigatorTabName(opc);
       break;
     case "faqs":
       content = <PreguntasFrecuentesComponent />;
+      setNavigatorTabName(opc);
       break;
   }
 

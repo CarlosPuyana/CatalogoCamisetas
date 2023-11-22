@@ -1,0 +1,16 @@
+export const APP_ROUTES = {
+  routeHome: "/",
+  routeRegistro: "/register",
+  routeLogin: "/login",
+  routeAddShirt: "/add",
+  routerShirt: "/camiseta/",
+  routeShirtById: "/camiseta/:id",
+  routeSearch: "/busqueda/",
+  routeSearchByString: "/busqueda/:busqueda",
+  routePage: "/page/",
+  routePageContacto: "/page/contacto",
+  routePageTallas: "/page/tallas",
+  routePagePrecio: "/page/precios",
+  routePagePrecioFaqs: "/page/faqs",
+  routePageByOpc: "/page/:opc",
+};
