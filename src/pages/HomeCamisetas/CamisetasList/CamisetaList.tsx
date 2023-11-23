@@ -65,7 +65,7 @@ const CamisetaList: React.FC<{ camisetas: ICamiseta[] }> = ({ camisetas }) => {
     <div className="d-flex flex-column align-items-end`">
       <Container className="mt-5 mx-5 clasesita" style={{ width: "100%" }}>
         <div className="d-flex flex-wrap align-items-center">
-          <hr />
+          
           {location.pathname === APP_ROUTES.routeHome
             ? camisetasTopFiltro?.map((e) =>
                 e.destacadaGlobal === true ? (
